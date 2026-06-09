@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: lucky-tap-casino
+    env: node
+    region: frankfurt
+    buildCommand: cd client && npm install && npx vite build && cd ../server && npm install
+    startCommand: cd server && npx tsx src/index.ts
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 20

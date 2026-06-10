@@ -25,6 +25,11 @@ body{font-family:'Inter',sans-serif;background:#05050a;color:#fff;overflow-x:hid
 .nav-burger.active span:first-child{transform:translateY(7px) rotate(45deg);background:#00f5d4}
 .nav-burger.active span:nth-child(2){opacity:0}
 .nav-burger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg);background:#00f5d4}
+.lang-switch{position:fixed;top:22px;right:180px;z-index:200;display:flex;gap:2px;background:rgba(5,5,10,.6);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:3px}
+.lang-btn{background:none;border:none;color:#555;font-size:.65rem;font-weight:700;padding:5px 10px;border-radius:7px;cursor:pointer;transition:.3s;font-family:'Inter',sans-serif;letter-spacing:.5px}
+.lang-btn:hover{color:#888}
+.lang-btn.active{background:rgba(0,245,212,.12);color:#00f5d4}
+@media(max-width:768px){.lang-switch{top:14px;right:80px;padding:2px}.lang-btn{padding:4px 7px;font-size:.6rem}}
 section{position:relative;z-index:1}
 .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px;position:relative;overflow:hidden}
 .hero::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:200px;background:linear-gradient(to top,#05050a,transparent);pointer-events:none}
@@ -210,12 +215,12 @@ select option{background:#0a0a18;color:#fff}
 <nav class="nav" id="nav">
   <a href="#" class="nav-logo">PLAY<span>Z</span></a>
   <ul class="nav-links" id="navLinks">
-    <li><a href="#about">About</a></li>
-    <li><a href="#zones">Zones</a></li>
-    <li><a href="#games">Games</a></li>
-    <li><a href="#pricing">Pricing</a></li>
-    <li><a href="#book">Book</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#about" data-i="navAbout">About</a></li>
+    <li><a href="#zones" data-i="navZones">Zones</a></li>
+    <li><a href="#games" data-i="navGames">Games</a></li>
+    <li><a href="#pricing" data-i="navPricing">Pricing</a></li>
+    <li><a href="#book" data-i="navBook">Book</a></li>
+    <li><a href="#contact" data-i="navContact">Contact</a></li>
   </ul>
   <button class="nav-burger" id="burger" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -223,23 +228,30 @@ select option{background:#0a0a18;color:#fff}
 </nav>
 
 <!-- ─── HERO ─── -->
+<div class="lang-switch">
+  <button class="lang-btn active" data-lang="es">ES</button>
+  <button class="lang-btn" data-lang="en">EN</button>
+  <button class="lang-btn" data-lang="ru">RU</button>
+  <button class="lang-btn" data-lang="ar">AR</button>
+</div>
+
 <section class="hero">
   <div class="hero-orb"></div>
-  <div class="hero-badge">🚀 Now Open in Torrevieja</div>
-  <h1>The One & Only<br><span class="grad">Esports Lounge</span></h1>
-  <p>75 high-end PCs · RTX 5080/5090 · PlayStation 5 Pro · 10 Gbps Fiber. Torrevieja's #1 gaming destination.</p>
+  <div class="hero-badge" data-i="heroBadge">🚀 Now Open in Torrevieja</div>
+  <h1 data-i="heroTitle">The One & Only<br><span class="grad">Esports Lounge</span></h1>
+  <p data-i="heroDesc">75 high-end PCs · RTX 5080/5090 · PlayStation 5 Pro · 10 Gbps Fiber. Torrevieja's #1 gaming destination.</p>
   <div class="hero-actions">
-    <a href="#book" class="btn btn-primary">Book Now</a>
-    <a href="#zones" class="btn btn-ghost">Explore Zones</a>
+    <a href="#book" class="btn btn-primary" data-i="bookBtn">Book Now</a>
+    <a href="#zones" class="btn btn-ghost" data-i="exploreBtn">Explore Zones</a>
   </div>
   <div class="hero-stats">
-    <div class="hero-stat"><div class="val">75</div><div class="lbl">Gaming PCs</div></div>
-    <div class="hero-stat"><div class="val">2</div><div class="lbl">PS5 Pro</div></div>
-    <div class="hero-stat"><div class="val">10</div><div class="lbl">Gbps Fiber</div></div>
-    <div class="hero-stat"><div class="val">~</div><div class="lbl">Open Daily</div></div>
+    <div class="hero-stat"><div class="val">75</div><div class="lbl" data-i="statPC">Gaming PCs</div></div>
+    <div class="hero-stat"><div class="val">2</div><div class="lbl" data-i="statPS5">PS5 Pro</div></div>
+    <div class="hero-stat"><div class="val">10</div><div class="lbl" data-i="statFiber">Gbps Fiber</div></div>
+    <div class="hero-stat"><div class="val">~</div><div class="lbl" data-i="statOpen">Open Daily</div></div>
   </div>
   <div class="scroll-hint">
-    <span>Scroll</span>
+    <span data-i="scroll">Scroll</span>
     <div class="line"></div>
   </div>
 </section>
@@ -257,128 +269,128 @@ select option{background:#0a0a18;color:#fff}
     <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1000&q=80" alt="PLAYZ Gaming Lounge">
   </div>
   <div class="about-text">
-    <div class="tag">About</div>
-    <h2>Premium Gaming Lounge & Esports Center in Torrevieja</h2>
-    <p>We combine a high-end gaming center, internet café, and esports arena into one unique experience. Whether you want to play for fun, train seriously, or just hang out with friends — PLAYZ is your spot.</p>
-    <p>Equipped with RTX 5080-5090 graphics, 240Hz monitors, PS5 Pro stations, and 10 Gbps fiber internet. Plus a Chill Out Lounge, VIP rooms, and regular tournaments.</p>
+    <div class="tag" data-i="aboutTag">About</div>
+    <h2 data-i="aboutTitle">Premium Gaming Lounge & Esports Center in Torrevieja</h2>
+    <p data-i="aboutP1">We combine a high-end gaming center, internet café, and esports arena into one unique experience. Whether you want to play for fun, train seriously, or just hang out with friends — PLAYZ is your spot.</p>
+    <p data-i="aboutP2">Equipped with RTX 5080-5090 graphics, 240Hz monitors, PS5 Pro stations, and 10 Gbps fiber internet. Plus a Chill Out Lounge, VIP rooms, and regular tournaments.</p>
     <div class="about-grid">
-      <div class="item"><span class="ico c">🖥️</span> 75 × RTX 5080/5090 PCs</div>
-      <div class="item"><span class="ico p">🎮</span> PS5 Pro · 4K 120Hz</div>
-      <div class="item"><span class="ico c">🌐</span> 10 Gbps Fiber Internet</div>
-      <div class="item"><span class="ico g">🏆</span> Weekly Tournaments</div>
+      <div class="item"><span class="ico c">🖥️</span> <span data-i="aboutG1">75 × RTX 5080/5090 PCs</span></div>
+      <div class="item"><span class="ico p">🎮</span> <span data-i="aboutG2">PS5 Pro · 4K 120Hz</span></div>
+      <div class="item"><span class="ico c">🌐</span> <span data-i="aboutG3">10 Gbps Fiber Internet</span></div>
+      <div class="item"><span class="ico g">🏆</span> <span data-i="aboutG4">Weekly Tournaments</span></div>
     </div>
   </div>
 </section>
 
 <!-- ─── FEATURES ─── -->
 <section class="features" id="features">
-  <h2 class="reveal">Why PLAYZ?</h2>
-  <p class="sub reveal">The ultimate gaming experience on the Costa Blanca</p>
+  <h2 class="reveal" data-i="featTitle">Why PLAYZ?</h2>
+  <p class="sub reveal" data-i="featSub">The ultimate gaming experience on the Costa Blanca</p>
   <div class="features-grid">
     <div class="feature-card reveal">
       <span class="fi">🖥️</span>
-      <h3>High-End PCs</h3>
-      <p>RTX 5060-5090 GPUs, 240Hz monitors, RAZER & Logitech G Pro gear. Maximum performance, zero limits.</p>
+      <h3 data-i="f1h">High-End PCs</h3>
+      <p data-i="f1p">RTX 5060-5090 GPUs, 240Hz monitors, RAZER & Logitech G Pro gear. Maximum performance, zero limits.</p>
     </div>
     <div class="feature-card reveal">
       <span class="fi">🎮</span>
-      <h3>Console Zone</h3>
-      <p>PlayStation 5 & PS5 Pro on OLED 8K displays. All exclusives, 120fps, maximum comfort.</p>
+      <h3 data-i="f2h">Console Zone</h3>
+      <p data-i="f2p">PlayStation 5 & PS5 Pro on OLED 8K displays. All exclusives, 120fps, maximum comfort.</p>
     </div>
     <div class="feature-card reveal">
       <span class="fi">🏆</span>
-      <h3>Tournaments</h3>
-      <p>Weekly competitions with prizes. Rank up in the League of PLAYZ. Night gaming every weekend.</p>
+      <h3 data-i="f3h">Tournaments</h3>
+      <p data-i="f3p">Weekly competitions with prizes. Rank up in the League of PLAYZ. Night gaming every weekend.</p>
     </div>
     <div class="feature-card reveal">
       <span class="fi">🌐</span>
-      <h3>10 Gbps Fiber</h3>
-      <p>Ultra-fast internet. Zero lag. Online gaming at the highest level you can't find anywhere else.</p>
+      <h3 data-i="f4h">10 Gbps Fiber</h3>
+      <p data-i="f4p">Ultra-fast internet. Zero lag. Online gaming at the highest level you can't find anywhere else.</p>
     </div>
   </div>
 </section>
 
 <!-- ─── ZONES ─── -->
 <section class="zones" id="zones">
-  <h2 class="reveal">Our Gaming Zones</h2>
-  <p class="sub reveal">Three specialized zones for every kind of gamer</p>
+  <h2 class="reveal" data-i="zoneTitle">Our Gaming Zones</h2>
+  <p class="sub reveal" data-i="zoneSub">Three specialized zones for every kind of gamer</p>
   <div class="zone-grid">
     <div class="zone-card reveal">
       <span class="zi">🖥️</span>
-      <h3>PC Gaming</h3>
-      <p>High-performance systems with RTX 5080-5090, 240Hz monitors, premium peripherals. Maximum power, maximum precision.</p>
+      <h3 data-i="z1h">PC Gaming</h3>
+      <p data-i="z1p">High-performance systems with RTX 5080-5090, 240Hz monitors, premium peripherals. Maximum power, maximum precision.</p>
     </div>
     <div class="zone-card reveal">
       <span class="zi">🎮</span>
-      <h3>Consoles</h3>
-      <p>PlayStation 5 & PS5 Pro with 4K 120Hz displays. All exclusive titles in next-gen quality.</p>
+      <h3 data-i="z2h">Consoles</h3>
+      <p data-i="z2p">PlayStation 5 & PS5 Pro with 4K 120Hz displays. All exclusive titles in next-gen quality.</p>
     </div>
     <div class="zone-card reveal">
       <span class="zi">👑</span>
-      <h3>VIP Lounges</h3>
-      <p>Private rooms for groups, birthdays, team training. Professional space with zero distractions.</p>
+      <h3 data-i="z3h">VIP Lounges</h3>
+      <p data-i="z3p">Private rooms for groups, birthdays, team training. Professional space with zero distractions.</p>
     </div>
   </div>
 </section>
 
 <!-- ─── GAMES ─── -->
 <section class="games" id="games">
-  <h2 class="reveal">Available Games</h2>
-  <p class="sub reveal">Play the most popular titles on our systems</p>
+  <h2 class="reveal" data-i="gameTitle">Available Games</h2>
+  <p class="sub reveal" data-i="gameSub">Play the most popular titles on our systems</p>
   <div class="games-grid" id="gamesGrid"></div>
 </section>
 
 <!-- ─── PRICING ─── -->
 <section class="pricing" id="pricing">
-  <h2 class="reveal">Pricing</h2>
-  <p class="sub reveal">Simple & fair — all gaming time never expires</p>
+  <h2 class="reveal" data-i="priceTitle">Pricing</h2>
+  <p class="sub reveal" data-i="priceSub">Simple & fair — all gaming time never expires</p>
   <div class="pricing-grid">
     <div class="price-card reveal">
       <span class="pi">🕐</span>
-      <h3>PC Gaming</h3>
-      <div class="pp">3€ <small>/ hour</small></div>
-      <p>Play any game on high-end PCs. All time is saved in your account and never expires.</p>
+      <h3 data-i="p1h">PC Gaming</h3>
+      <div class="pp">3€ <small data-i="perHour">/ hour</small></div>
+      <p data-i="p1p">Play any game on high-end PCs. All time is saved in your account and never expires.</p>
     </div>
     <div class="price-card reveal">
       <span class="pi">🎮</span>
-      <h3>PlayStation 5</h3>
-      <div class="pp">4€ <small>/ hour</small></div>
-      <p>Next-gen console gaming on 4K 120Hz displays. PS5 Pro also available.</p>
+      <h3 data-i="p2h">PlayStation 5</h3>
+      <div class="pp">4€ <small data-i="perHour">/ hour</small></div>
+      <p data-i="p2p">Next-gen console gaming on 4K 120Hz displays. PS5 Pro also available.</p>
     </div>
     <div class="price-card featured reveal">
-      <span class="badge">POPULAR</span>
+      <span class="badge" data-i="popular">POPULAR</span>
       <span class="pi">🌙</span>
-      <h3>Night Gaming</h3>
-      <div class="pp">20€ <small>/ all night</small></div>
-      <p>Fri & Sat 22:00 – 08:00 unlimited play. The ultimate weekend experience.</p>
+      <h3 data-i="p3h">Night Gaming</h3>
+      <div class="pp">20€ <small data-i="allNight">/ all night</small></div>
+      <p data-i="p3p">Fri & Sat 22:00 – 08:00 unlimited play. The ultimate weekend experience.</p>
     </div>
     <div class="price-card reveal">
       <span class="pi">🥳</span>
-      <h3>VIP Room</h3>
-      <div class="pp">From 50€ <small>/ session</small></div>
-      <p>Private room for groups, birthdays, team training & events. Contact us for pricing.</p>
+      <h3 data-i="p4h">VIP Room</h3>
+      <div class="pp"><span data-i="from">From</span> 50€ <small data-i="perSession">/ session</small></div>
+      <p data-i="p4p">Private room for groups, birthdays, team training & events. Contact us for pricing.</p>
     </div>
   </div>
 </section>
 
 <!-- ─── REVIEWS ─── -->
 <section class="reviews" id="reviews">
-  <h2 class="reveal">What Gamers Say</h2>
-  <p class="sub reveal">The gaming community of Torrevieja has spoken</p>
+  <h2 class="reveal" data-i="revTitle">What Gamers Say</h2>
+  <p class="sub reveal" data-i="revSub">The gaming community of Torrevieja has spoken</p>
   <div class="review-grid">
     <div class="review-card reveal">
       <div class="stars">★★★★★</div>
-      <p>"The PCs are top-notch, with zero lag, and the peripherals are clearly high quality. The atmosphere is very gamer-oriented but comfortable, and the staff are super attentive. We'll definitely be back."</p>
+      <p data-i="r1">"The PCs are top-notch, with zero lag, and the peripherals are clearly high quality. The atmosphere is very gamer-oriented but comfortable, and the staff are super attentive. We'll definitely be back."</p>
       <div class="author">— Laura Lopez</div>
     </div>
     <div class="review-card reveal">
       <div class="stars">★★★★★</div>
-      <p>"The best place to play ranked games in style. Comfortable chairs, top-of-the-line screens, and a good connection."</p>
+      <p data-i="r2">"The best place to play ranked games in style. Comfortable chairs, top-of-the-line screens, and a good connection."</p>
       <div class="author">— Alberto Torres</div>
     </div>
     <div class="review-card reveal">
       <div class="stars">★★★★★</div>
-      <p>"We went to a tournament and everything was very well organised: sound, stands, space and good vibes. If you like eSports or just want to play properly without spending a fortune on a PC — this is the place."</p>
+      <p data-i="r3">"We went to a tournament and everything was very well organised: sound, stands, space and good vibes. If you like eSports or just want to play properly without spending a fortune on a PC — this is the place."</p>
       <div class="author">— Antonio Sanchez</div>
     </div>
   </div>
@@ -386,8 +398,8 @@ select option{background:#0a0a18;color:#fff}
 
 <!-- ─── FOOD ─── -->
 <section class="food" id="food">
-  <h2 class="reveal">Food & Drinks</h2>
-  <p class="sub reveal">Keep your energy up</p>
+  <h2 class="reveal" data-i="foodTitle">Food & Drinks</h2>
+  <p class="sub reveal" data-i="foodSub">Keep your energy up</p>
   <div class="food-grid">
     <div class="food-item reveal"><span class="fi">🌭</span><h3>Hot Dog</h3><div class="fp">3€</div></div>
     <div class="food-item reveal"><span class="fi">🥤</span><h3>Soft Drink</h3><div class="fp">2€</div></div>
@@ -398,11 +410,11 @@ select option{background:#0a0a18;color:#fff}
 
 <!-- ─── BOOKING ─── -->
 <section class="booking" id="book">
-  <h2 class="reveal">Book Your Session</h2>
-  <p class="sub reveal">Reserve a PC, PlayStation, or VIP room</p>
+  <h2 class="reveal" data-i="bookTitle">Book Your Session</h2>
+  <p class="sub reveal" data-i="bookSub">Reserve a PC, PlayStation, or VIP room</p>
   <div class="book-card reveal">
     <div class="fg">
-      <label>Platform</label>
+      <label data-i="bookPlatform">Platform</label>
       <select id="platform">
         <option value="pc">Gaming PC · 3€/h</option>
         <option value="ps5">PlayStation 5 · 4€/h</option>
@@ -410,36 +422,36 @@ select option{background:#0a0a18;color:#fff}
     </div>
     <div class="fr">
       <div class="fg">
-        <label>Date</label>
+        <label data-i="bookDate">Date</label>
         <input type="date" id="date">
       </div>
       <div class="fg">
-        <label>Hours</label>
+        <label data-i="bookHours">Hours</label>
         <input type="number" id="hours" min="1" max="12" value="1">
       </div>
     </div>
     <div class="fr">
       <div class="fg">
-        <label>From</label>
+        <label data-i="bookFrom">From</label>
         <input type="time" id="time" value="14:00">
       </div>
       <div class="fg">
-        <label>Players</label>
+        <label data-i="bookPlayers">Players</label>
         <input type="number" id="players" min="1" max="10" value="1">
       </div>
     </div>
     <div class="book-total">
-      <span class="tt">Total</span>
+      <span class="tt" data-i="bookTotal">Total</span>
       <span class="am" id="totalDisplay">3€</span>
     </div>
-    <button class="btn btn-primary" id="bookBtn">📩 Book via WhatsApp</button>
+    <button class="btn btn-primary" id="bookBtn" data-i="bookBtnWA">📩 Book via WhatsApp</button>
   </div>
 </section>
 
 <!-- ─── GALLERY ─── -->
 <section class="gallery" id="gallery">
-  <h2 class="reveal">Gallery</h2>
-  <p class="sub reveal">Take a virtual tour of PLAYZ</p>
+  <h2 class="reveal" data-i="galTitle">Gallery</h2>
+  <p class="sub reveal" data-i="galSub">Take a virtual tour of PLAYZ</p>
   <div class="gallery-grid">
     <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=600&q=80" alt=""><div class="gl"></div><span class="glb">PC Zone</span></div>
     <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=600&q=80" alt=""><div class="gl"></div><span class="glb">Gaming Setup</span></div>
@@ -452,62 +464,149 @@ select option{background:#0a0a18;color:#fff}
 
 <!-- ─── FAQ ─── -->
 <section class="faq" id="faq">
-  <h2 class="reveal">FAQ</h2>
-  <p class="sub reveal">Everything you need to know</p>
+  <h2 class="reveal" data-i="faqTitle">FAQ</h2>
+  <p class="sub reveal" data-i="faqSub">Everything you need to know</p>
   <div class="faq-list">
     <div class="faq-item">
-      <div class="faq-q">Do I need to book in advance?<span class="arrow">▼</span></div>
-      <div class="faq-a">For walk-ins, just come by! For large groups, events, birthdays, night gaming or VIP rooms, we recommend booking in advance.</div>
+      <div class="faq-q" data-i="faq1">Do I need to book in advance?<span class="arrow">▼</span></div>
+      <div class="faq-a" data-i="faq1a">For walk-ins, just come by! For large groups, events, birthdays, night gaming or VIP rooms, we recommend booking in advance.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q">Does my gaming time expire?<span class="arrow">▼</span></div>
-      <div class="faq-a">No. All purchased gaming time is saved in your account and never expires.</div>
+      <div class="faq-q" data-i="faq2">Does my gaming time expire?<span class="arrow">▼</span></div>
+      <div class="faq-a" data-i="faq2a">No. All purchased gaming time is saved in your account and never expires.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q">Can I bring my own mouse, keyboard or controller?<span class="arrow">▼</span></div>
-      <div class="faq-a">Yes, absolutely. All stations have USB ports ready for your own gear.</div>
+      <div class="faq-q" data-i="faq3">Can I bring my own mouse, keyboard or controller?<span class="arrow">▼</span></div>
+      <div class="faq-a" data-i="faq3a">Yes, absolutely. All stations have USB ports ready for your own gear.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q">Is there an age limit?<span class="arrow">▼</span></div>
-      <div class="faq-a">No minimum age during the day. For night gaming (22:00-08:00), players under 15 need guardian authorization.</div>
+      <div class="faq-q" data-i="faq4">Is there an age limit?<span class="arrow">▼</span></div>
+      <div class="faq-a" data-i="faq4a">No minimum age during the day. For night gaming (22:00-08:00), players under 15 need guardian authorization.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q">What games are available?<span class="arrow">▼</span></div>
-      <div class="faq-a">CS2, Valorant, Fortnite, Call of Duty, EA FC, League of Legends, Dota 2, Apex Legends, Rocket League, GTA V, Minecraft, Overwatch 2, Rainbow Six, PUBG, Genshin Impact, and many more. You can use your own Steam/Epic/Riot accounts or our guest accounts.</div>
+      <div class="faq-q" data-i="faq5">What games are available?<span class="arrow">▼</span></div>
+      <div class="faq-a" data-i="faq5a">CS2, Valorant, Fortnite, Call of Duty, EA FC, League of Legends, Dota 2, Apex Legends, Rocket League, GTA V, Minecraft, Overwatch 2, Rainbow Six, PUBG, Genshin Impact, and many more. You can use your own Steam/Epic/Riot accounts or our guest accounts.</div>
     </div>
   </div>
 </section>
 
 <!-- ─── CTA ─── -->
 <section class="cta" id="contact">
-  <h2 class="reveal">Visit PLAYZ Today</h2>
-  <p class="sub reveal">Open every day — come play!</p>
+  <h2 class="reveal" data-i="ctaTitle">Visit PLAYZ Today</h2>
+  <p class="sub reveal" data-i="ctaSub">Open every day — come play!</p>
   <div class="hero-actions reveal">
     <a href="tel:+34690991633" class="btn btn-primary">📞 +34 690 99 16 33</a>
   </div>
   <div class="cta-info reveal">
-    <div class="ci"><span class="cico">📍</span><span class="cl">Address</span><span class="cv">C. De Orihuela 100, Torrevieja</span></div>
-    <div class="ci"><span class="cico">🕐</span><span class="cl">Hours</span><span class="cv">Daily 10:00 – 02:00</span></div>
-    <div class="ci"><span class="cico">💶</span><span class="cl">From</span><span class="cv">3€ / hour</span></div>
-    <div class="ci"><span class="cico">📧</span><span class="cl">Email</span><span class="cv">info@playzgaming.es</span></div>
+    <div class="ci"><span class="cico">📍</span><span class="cl" data-i="ctaAddrLbl">Address</span><span class="cv" data-i="ctaAddr">C. De Orihuela 100, Torrevieja</span></div>
+    <div class="ci"><span class="cico">🕐</span><span class="cl" data-i="ctaHoursLbl">Hours</span><span class="cv" data-i="ctaHours">Daily 10:00 – 02:00</span></div>
+    <div class="ci"><span class="cico">💶</span><span class="cl" data-i="ctaFromLbl">From</span><span class="cv" data-i="ctaFrom">3€ / hour</span></div>
+    <div class="ci"><span class="cico">📧</span><span class="cl">Email</span><span class="cv" data-i="ctaEmail">info@playzgaming.es</span></div>
   </div>
 </section>
 
 <div class="map">
-  <span>📍 C. De Orihuela 100, Torrevieja</span>
-  <a href="https://maps.google.com/?q=C+De+Orihuela+100+Torrevieja" target="_blank">Open in Google Maps →</a>
+  <span data-i="mapText">📍 C. De Orihuela 100, Torrevieja</span>
+  <a href="https://maps.google.com/?q=C+De+Orihuela+100+Torrevieja" target="_blank" data-i="mapLink">Open in Google Maps →</a>
 </div>
 
 <footer class="footer">
   <div class="footer-links">
-    <a href="#">Instagram</a>
-    <a href="#">TikTok</a>
-    <a href="#">WhatsApp</a>
+    <a href="#" data-i="footerIG">Instagram</a>
+    <a href="#" data-i="footerTT">TikTok</a>
+    <a href="#" data-i="footerWA">WhatsApp</a>
   </div>
-  <p>© 2026 PLAYZ Gaming Center Torrevieja. All rights reserved.</p>
+  <p data-i="footerCopy">© 2026 PLAYZ Gaming Center Torrevieja. All rights reserved.</p>
 </footer>
 
 <script>
+const lang = {
+  es: {
+    heroBadge:'🚀 Ahora Abierto en Torrevieja',heroTitle:'El Único<br><span class="grad">Esports Lounge</span>',heroDesc:'75 PC gaming · RTX 5080/5090 · PlayStation 5 Pro · 10 Gbps Fiber. El destino #1 de gaming en Torrevieja.',
+    bookBtn:'Reservar',exploreBtn:'Explorar Zonas',scroll:'Desplázate',
+    navAbout:'Sobre',navZones:'Zonas',navGames:'Juegos',navPricing:'Precios',navBook:'Reservar',navContact:'Contacto',
+    aboutTag:'Sobre',aboutTitle:'Premium Gaming Lounge & Esports Center en Torrevieja',aboutP1:'Combinamos un centro de gaming de alta gama, cibercafé y arena esports en una experiencia única. Ya sea para divertirte, entrenar en serio o pasar el rato con amigos — PLAYZ es tu sitio.',aboutP2:'Equipado con RTX 5080-5090, monitores 240Hz, PS5 Pro y fibra 10 Gbps. Además de Chill Out Lounge, salas VIP y torneos semanales.',
+    aboutG1:'75 × RTX 5080/5090 PCs',aboutG2:'PS5 Pro · 4K 120Hz',aboutG3:'Fibra 10 Gbps',aboutG4:'Torneos Semanales',
+    featTitle:'¿Por qué PLAYZ?',featSub:'La experiencia gaming definitiva en la Costa Blanca',f1h:'PC de Alta Gama',f1p:'GPU RTX 5060-5090, monitores 240Hz, periféricos RAZER y Logitech G Pro.',f2h:'Zona Consolas',f2p:'PlayStation 5 & PS5 Pro en pantallas OLED 8K. Todas las exclusivas, 120fps.',f3h:'Torneos',f3p:'Competiciones semanales con premios. Sube en la Liga PLAYZ. Gaming nocturno.',f4h:'Fibra 10 Gbps',f4p:'Internet ultrarrápido. Cero lag. Gaming online al más alto nivel.',
+    zoneTitle:'Nuestras Zonas Gaming',zoneSub:'Tres zonas especializadas para cada tipo de gamer',z1h:'PC Gaming',z1p:'Sistemas RTX 5080-5090, monitores 240Hz, periféricos premium.',z2h:'Consolas',z2p:'PS5 & PS5 Pro con pantallas 4K 120Hz. Todos los títulos exclusivos.',z3h:'Salas VIP',z3p:'Espacios privados para grupos, cumpleaños, entrenamientos. Sin distracciones.',
+    gameTitle:'Juegos Disponibles',gameSub:'Juega los títulos más populares',
+    priceTitle:'Precios',priceSub:'Simples y justos — el tiempo nunca caduca',p1h:'PC Gaming',p1p:'Juega en PCs de alta gama. Todo el tiempo se guarda en tu cuenta.',p2h:'PlayStation 5',p2p:'Consolas next-gen en pantallas 4K 120Hz. PS5 Pro disponible.',p3h:'Gaming Nocturno',p3p:'Vie y Sáb 22:00-08:00. Juego ilimitado toda la noche.',p4h:'VIP Room',p4p:'Habitación privada para grupos, eventos y entrenamientos.',
+    revTitle:'Lo que Dicen los Gamers',revSub:'La comunidad gaming de Torrevieja ha hablado',r1:'"Los PCs son de primera, cero lag y los periféricos de alta calidad. El ambiente es muy gamer pero cómodo, y el personal súper atento. Volveremos sin duda."',r2:'"El mejor sitio para jugar partidas competitivas con estilo. Sillas cómodas, pantallas de primera y buena conexión."',r3:'"Fuimos a un torneo y todo estaba muy bien organizado: sonido, stands, espacio y buen rollo. Si te gustan los esports — este es tu sitio."',
+    foodTitle:'Comida y Bebida',foodSub:'Mantén tu energía al máximo',
+    bookTitle:'Reserva tu Sesión',bookSub:'Reserva un PC, PlayStation o sala VIP',bookPlatform:'Plataforma',bookDate:'Fecha',bookHours:'Horas',bookFrom:'Desde',bookPlayers:'Jugadores',bookTotal:'Total',bookBtnWA:'📩 Reservar por WhatsApp',
+    galTitle:'Galería',galSub:'Haz un tour virtual de PLAYZ',
+    faqTitle:'FAQ',faqSub:'Todo lo que necesitas saber',faq1:'¿Necesito reservar con antelación?',faq1a:'Para grupos grandes, eventos, cumpleaños, gaming nocturno o salas VIP, recomendamos reservar. Para visitas individuales, puedes venir directamente.',faq2:'¿El tiempo de juego caduca?',faq2a:'No. Todo el tiempo comprado se guarda en tu cuenta y nunca caduca.',faq3:'¿Puedo traer mi propio ratón, teclado o mando?',faq3a:'Sí, absolutamente. Todos los puestos tienen puertos USB.',faq4:'¿Hay límite de edad?',faq4a:'No hay edad mínima durante el día. Para gaming nocturno (22:00-08:00), menores de 15 necesitan autorización.',faq5:'¿Qué juegos hay disponibles?',faq5a:'CS2, Valorant, Fortnite, Call of Duty, EA FC, League of Legends, Dota 2, Apex Legends, Rocket League, GTA V, Minecraft, Overwatch 2, Rainbow Six, PUBG, Genshin Impact y muchos más.',
+    ctaTitle:'Visita PLAYZ Hoy',ctaSub:'Abierto todos los días — ¡ven a jugar!',    from:'Desde',perHour:'/ hora',allNight:'/ toda la noche',perSession:'/ sesión',popular:'POPULAR',
+    ctaAddrLbl:'Dirección',ctaHoursLbl:'Horario',ctaFromLbl:'Desde',
+    ctaAddr:'C. De Orihuela 100, Torrevieja',ctaHours:'Diario 10:00 – 02:00',ctaFrom:'Desde',ctaEmail:'info@playzgaming.es',mapText:'📍 C. De Orihuela 100, Torrevieja',mapLink:'Abrir en Google Maps →',
+    footerIG:'Instagram',footerTT:'TikTok',footerWA:'WhatsApp',footerCopy:'© 2026 PLAYZ Gaming Center Torrevieja. Todos los derechos reservados.',
+    statPC:'PC Gaming',statPS5:'PS5 Pro',statFiber:'Gbps Fibra',statOpen:'Abierto Diario',
+  },
+  en: {
+    heroBadge:'🚀 Now Open in Torrevieja',heroTitle:'The One & Only<br><span class="grad">Esports Lounge</span>',heroDesc:'75 high-end PCs · RTX 5080/5090 · PlayStation 5 Pro · 10 Gbps Fiber. Torrevieja\'s #1 gaming destination.',
+    bookBtn:'Book Now',exploreBtn:'Explore Zones',scroll:'Scroll',
+    navAbout:'About',navZones:'Zones',navGames:'Games',navPricing:'Pricing',navBook:'Book',navContact:'Contact',
+    aboutTag:'About',aboutTitle:'Premium Gaming Lounge & Esports Center in Torrevieja',aboutP1:'We combine a high-end gaming center, internet café, and esports arena into one unique experience. Whether you want to play for fun, train seriously, or just hang out with friends — PLAYZ is your spot.',aboutP2:'Equipped with RTX 5080-5090 graphics, 240Hz monitors, PS5 Pro stations, and 10 Gbps fiber internet. Plus a Chill Out Lounge, VIP rooms, and regular tournaments.',
+    aboutG1:'75 × RTX 5080/5090 PCs',aboutG2:'PS5 Pro · 4K 120Hz',aboutG3:'10 Gbps Fiber Internet',aboutG4:'Weekly Tournaments',
+    featTitle:'Why PLAYZ?',featSub:'The ultimate gaming experience on the Costa Blanca',f1h:'High-End PCs',f1p:'RTX 5060-5090 GPUs, 240Hz monitors, RAZER & Logitech G Pro gear.',f2h:'Console Zone',f2p:'PlayStation 5 & PS5 Pro on OLED 8K displays. All exclusives, 120fps.',f3h:'Tournaments',f3p:'Weekly competitions with prizes. Rank up in the League of PLAYZ.',f4h:'10 Gbps Fiber',f4p:'Ultra-fast internet. Zero lag. Online gaming at the highest level.',
+    zoneTitle:'Our Gaming Zones',zoneSub:'Three specialized zones for every kind of gamer',z1h:'PC Gaming',z1p:'RTX 5080-5090 systems, 240Hz monitors, premium peripherals.',z2h:'Consoles',z2p:'PS5 & PS5 Pro with 4K 120Hz displays. All exclusive titles.',z3h:'VIP Lounges',z3p:'Private rooms for groups, birthdays, team training.',
+    gameTitle:'Available Games',gameSub:'Play the most popular titles on our systems',
+    priceTitle:'Pricing',priceSub:'Simple & fair — all gaming time never expires',p1h:'PC Gaming',p1p:'Play any game on high-end PCs. All time saved in your account.',p2h:'PlayStation 5',p2p:'Next-gen console gaming on 4K 120Hz displays. PS5 Pro available.',p3h:'Night Gaming',p3p:'Fri & Sat 22:00-08:00 unlimited play. The ultimate weekend experience.',p4h:'VIP Room',p4p:'Private room for groups, birthdays, team training & events.',
+    revTitle:'What Gamers Say',revSub:'The gaming community of Torrevieja has spoken',r1:'"The PCs are top-notch, with zero lag, and the peripherals are clearly high quality. We\'ll definitely be back."',r2:'"The best place to play ranked games in style. Comfortable chairs, top-of-the-line screens, and a good connection."',r3:'"We went to a tournament and everything was very well organised: sound, stands, space and good vibes."',
+    foodTitle:'Food & Drinks',foodSub:'Keep your energy up',
+    bookTitle:'Book Your Session',bookSub:'Reserve a PC, PlayStation, or VIP room',bookPlatform:'Platform',bookDate:'Date',bookHours:'Hours',bookFrom:'From',bookPlayers:'Players',bookTotal:'Total',bookBtnWA:'📩 Book via WhatsApp',
+    galTitle:'Gallery',galSub:'Take a virtual tour of PLAYZ',
+    faqTitle:'FAQ',faqSub:'Everything you need to know',faq1:'Do I need to book in advance?',faq1a:'For walk-ins, just come by! For large groups, events or VIP rooms, we recommend booking in advance.',faq2:'Does my gaming time expire?',faq2a:'No. All purchased gaming time is saved in your account and never expires.',faq3:'Can I bring my own mouse, keyboard or controller?',faq3a:'Yes, absolutely. All stations have USB ports ready for your own gear.',faq4:'Is there an age limit?',faq4a:'No minimum age during the day. For night gaming, players under 15 need guardian authorization.',faq5:'What games are available?',faq5a:'CS2, Valorant, Fortnite, Call of Duty, EA FC, League of Legends, Dota 2, Apex Legends, Rocket League, GTA V, Minecraft, Overwatch 2, Rainbow Six, PUBG, Genshin Impact, and many more.',
+    ctaTitle:'Visit PLAYZ Today',ctaSub:'Open every day — come play!',    from:'From',perHour:'/ hour',allNight:'/ all night',perSession:'/ session',popular:'POPULAR',
+    ctaAddrLbl:'Address',ctaHoursLbl:'Hours',ctaFromLbl:'From',
+    ctaAddr:'C. De Orihuela 100, Torrevieja',ctaHours:'Daily 10:00 – 02:00',ctaFrom:'From',ctaEmail:'info@playzgaming.es',mapText:'📍 C. De Orihuela 100, Torrevieja',mapLink:'Open in Google Maps →',
+    footerIG:'Instagram',footerTT:'TikTok',footerWA:'WhatsApp',footerCopy:'© 2026 PLAYZ Gaming Center Torrevieja. All rights reserved.',
+    statPC:'Gaming PCs',statPS5:'PS5 Pro',statFiber:'Gbps Fiber',statOpen:'Open Daily',
+  },
+  ru: {
+    heroBadge:'🚀 Открыто в Торревьехе',heroTitle:'Единственный<br><span class="grad">Esports Lounge</span>',heroDesc:'75 мощных ПК · RTX 5080/5090 · PlayStation 5 Pro · 10 Гбит/с. Главное гейминг-место Торревьехи.',
+    bookBtn:'Забронировать',exploreBtn:'Наши зоны',scroll:'Листай',
+    navAbout:'О нас',navZones:'Зоны',navGames:'Игры',navPricing:'Цены',navBook:'Бронь',navContact:'Контакты',
+    aboutTag:'О нас',aboutTitle:'Премиальный игровой клуб в Торревьехе',aboutP1:'Мы объединили высококлассный гейминг-центр, интернет-кафе и киберспортивную арену. Играй, тренируйся или тусуйся с друзьями — PLAYZ твоё место.',aboutP2:'RTX 5080-5090, мониторы 240 Гц, PS5 Pro и интернет 10 Гбит/с. Chill Out зона, VIP комнаты и регулярные турниры.',
+    aboutG1:'75 × RTX 5080/5090 ПК',aboutG2:'PS5 Pro · 4K 120Гц',aboutG3:'Интернет 10 Гбит/с',aboutG4:'Еженедельные турниры',
+    featTitle:'Почему PLAYZ?',featSub:'Лучший гейминг-опыт на Коста-Бланке',f1h:'Мощные ПК',f1p:'GPU RTX 5060-5090, мониторы 240 Гц, периферия RAZER и Logitech G Pro.',f2h:'Консольная зона',f2p:'PS5 и PS5 Pro на OLED 8K дисплеях. Все эксклюзивы, 120fps.',f3h:'Турниры',f3p:'Еженедельные соревнования с призами. Повышай ранг в лиге PLAYZ.',f4h:'10 Гбит/с Интернет',f4p:'Ультрабыстрый интернет. Ноль лагов. Игры на максимальном уровне.',
+    zoneTitle:'Наши игровые зоны',zoneSub:'Три зоны для каждого типа геймеров',z1h:'ПК',z1p:'Системы RTX 5080-5090, мониторы 240 Гц, премиум периферия.',z2h:'Консоли',z2p:'PS5 и PS5 Pro с 4K 120 Гц экранами. Все эксклюзивы.',z3h:'VIP Комнаты',z3p:'Приватные комнаты для компаний, дней рождений и тренировок.',
+    gameTitle:'Доступные игры',gameSub:'Играй в популярнейшие тайтлы',
+    priceTitle:'Цены',priceSub:'Честно и просто — время никогда не сгорает',p1h:'ПК',p1p:'Играй на мощных ПК. Время сохраняется на аккаунте.',p2h:'PlayStation 5',p2p:'Консоли нового поколения на 4K 120 Гц. PS5 Pro доступна.',p3h:'Ночной гейминг',p3p:'Пт и Сб 22:00-08:00 безлимитная игра. Лучший уикенд.',p4h:'VIP Комната',p4p:'Приватная комната для компаний, дней рождений и ивентов.',
+    revTitle:'Отзывы геймеров',revSub:'Игровое сообщество Торревьехи оценило',r1:'"ПК высшего уровня, ноль лагов, периферия отличного качества. Атмосфера очень геймерская, персонал внимательный. Вернёмся обязательно."',r2:'"Лучшее место для рейтинговых игр. Удобные кресла, топовые экраны, отличное соединение."',r3:'"Были на турнире — всё отлично организовано: звук, стенды, пространство. Если любишь киберспорт — это твоё место."',
+    foodTitle:'Еда и напитки',foodSub:'Подзарядись',
+    bookTitle:'Забронируй сессию',bookSub:'Забронируй ПК, PlayStation или VIP комнату',bookPlatform:'Платформа',bookDate:'Дата',bookHours:'Часы',bookFrom:'С',bookPlayers:'Игроки',bookTotal:'Итого',bookBtnWA:'📩 Забронировать в WhatsApp',
+    galTitle:'Галерея',galSub:'Виртуальный тур по PLAYZ',
+    faqTitle:'FAQ',faqSub:'Всё что нужно знать',faq1:'Нужно ли бронировать заранее?',faq1a:'Для индивидуальных визитов можно прийти без записи. Для групп, дней рождений, ночного гейминга и VIP комнат рекомендуем бронь.',faq2:'Время игры сгорает?',faq2a:'Нет. Всё купленное время сохраняется на вашем аккаунте и никогда не сгорает.',faq3:'Можно принести свою мышь, клавиатуру или геймпад?',faq3a:'Да, конечно. На всех станциях есть USB порты.',faq4:'Есть возрастные ограничения?',faq4a:'Днём без ограничений. Для ночного гейминга (22:00-08:00) до 15 лет нужно разрешение родителей.',faq5:'Какие игры доступны?',faq5a:'CS2, Valorant, Fortnite, Call of Duty, EA FC, League of Legends, Dota 2, Apex Legends, Rocket League, GTA V, Minecraft, Overwatch 2, Rainbow Six, PUBG, Genshin Impact и многие другие.',
+    ctaTitle:'Приходи в PLAYZ сегодня',ctaSub:'Открыто ежедневно — приходи играть!',    from:'От',perHour:'/ час',allNight:'/ вся ночь',perSession:'/ сессия',popular:'ПОПУЛЯРНО',
+    ctaAddrLbl:'Адрес',ctaHoursLbl:'Часы',ctaFromLbl:'От',
+    ctaAddr:'C. De Orihuela 100, Torrevieja',ctaHours:'Ежедневно 10:00 – 02:00',ctaFrom:'От',ctaEmail:'info@playzgaming.es',mapText:'📍 C. De Orihuela 100, Torrevieja',mapLink:'Открыть в Google Maps →',
+    footerIG:'Instagram',footerTT:'TikTok',footerWA:'WhatsApp',footerCopy:'© 2026 PLAYZ Gaming Center Torrevieja. Все права защищены.',
+    statPC:'ПК',statPS5:'PS5 Pro',statFiber:'Гбит/с',statOpen:'Ежедневно',
+  },
+  ar: {
+    heroBadge:'🚀 مفتوح الآن في توريفيخا',heroTitle:'الوحيد<br><span class="grad">صالة الرياضات الإلكترونية</span>',heroDesc:'75 حاسوب عالي الأداء · RTX 5080/5090 · بلاي ستيشن 5 برو · 10 جيجابت الألياف. وجهة الألعاب رقم 1 في توريفيخا.',
+    bookBtn:'احجز الآن',exploreBtn:'استكشف المناطق',scroll:'مرر',
+    navAbout:'عن',navZones:'المناطق',navGames:'الألعاب',navPricing:'السعر',navBook:'احجز',navContact:'اتصل',
+    aboutTag:'عن اللعبة',aboutTitle:'صالة ألعاب فاخرة ومركز الرياضات الإلكترونية في توريفيخا',aboutP1:'نحن نجمع بين مركز ألعاب عالي الجودة ومقهى إنترنت وساحة رياضات إلكترونية في تجربة فريدة. سواء كنت تريد اللعب للمتعة أو التدريب بجدية أو التسكع مع الأصدقاء - PLAYZ هو مكانك.',aboutP2:'مجهزة بـ RTX 5080-5090 وشاشات 240Hz ومحطات PS5 Pro وألياف 10 جيجابت. بالإضافة إلى صالة استرخاء وغرف VIP وبطولات أسبوعية.',
+    aboutG1:'75 × RTX 5080/5090 حاسوب',aboutG2:'PS5 Pro · 4K 120Hz',aboutG3:'ألياف 10 جيجابت',aboutG4:'بطولات أسبوعية',
+    featTitle:'لماذا PLAYZ؟',featSub:'تجربة الألعاب المثلى على ساحل كوستا بلانكا',f1h:'أجهزة عالية الأداء',f1p:'معالجات RTX 5060-5090 وشاشات 240Hz ومعدات RAZER وLogitech G Pro.',f2h:'منطقة الأجهزة',f2p:'PS5 و PS5 Pro على شاشات OLED 8K.',f3h:'بطولات',f3p:'مسابقات أسبوعية بجوائز. ارتقِ في دوري PLAYZ.',f4h:'ألياف 10 جيجابت',f4p:'إنترنت فائق السرعة. بدون تأخير. العب بأعلى مستوى.',
+    zoneTitle:'مناطق الألعاب لدينا',zoneSub:'ثلاث مناطق متخصصة لكل نوع من اللاعبين',z1h:'أجهزة الكمبيوتر',z1p:'أنظمة RTX 5080-5090 وشاشات 240Hz وملحقات فاخرة.',z2h:'الأجهزة المنزلية',z2p:'PS5 و PS5 Pro مع شاشات 4K 120Hz.',z3h:'غرف VIP',z3p:'غرف خاصة للمجموعات وأعياد الميلاد والتدريبات الجماعية.',
+    gameTitle:'الألعاب المتاحة',gameSub:'العب أشهر الألعاب على أنظمتنا',
+    priceTitle:'الأسعار',priceSub:'بسيطة وعادلة — وقت اللعب لا ينتهي أبداً',p1h:'أجهزة الكمبيوتر',p1p:'العب أي لعبة على أجهزة عالية الأداء. الوقت محفوظ في حسابك.',p2h:'بلاي ستيشن 5',p2p:'ألعاب الجيل الجديد على شاشات 4K 120Hz. PS5 Pro متوفر.',p3h:'اللعب الليلي',p3p:'الجمعة والسبت 22:00-08:00 لعب غير محدود طوال الليل.',p4h:'غرفة VIP',p4p:'غرفة خاصة للمجموعات وأعياد الميلاد والفعاليات.',
+    revTitle:'ماذا يقول اللاعبون',revSub:'مجتمع الألعاب في توريفيخا يتحدث',r1:'"أجهزة الكمبيوتر من الدرجة الأولى بدون تأخير وجودة الملحقات عالية. الجو مناسب جداً للاعبين لكنه مريح. سنعود بالتأكيد."',r2:'"أفضل مكان للعب المباريات التنافسية. كراسي مريحة وشاشات ممتازة واتصال جيد."',r3:'"ذهبنا إلى بطولة وكان كل شيء منظماً جداً: الصوت والمساحة والطاقة الإيجابية."',
+    foodTitle:'الطعام والشراب',foodSub:'حافظ على طاقتك',
+    bookTitle:'احجز جلستك',bookSub:'احجز جهاز كمبيوتر أو بلاي ستيشن أو غرفة VIP',bookPlatform:'المنصة',bookDate:'التاريخ',bookHours:'الساعات',bookFrom:'من',bookPlayers:'اللاعبون',bookTotal:'المجموع',bookBtnWA:'📩 احجز عبر واتساب',
+    galTitle:'المعرض',galSub:'قم بجولة افتراضية في PLAYZ',
+    faqTitle:'الأسئلة الشائعة',faqSub:'كل ما تحتاج معرفته',faq1:'هل أحتاج إلى الحجز مسبقاً؟',faq1a:'للزيارات الفردية يمكنك القدوم مباشرة. للمجموعات الكبيرة أو غرف VIP نوصي بالحجز مسبقاً.',faq2:'هل تنتهي صلاحية وقت اللعب؟',faq2a:'لا. كل وقت اللعب المشترى محفوظ في حسابك ولا تنتهي صلاحيته أبداً.',faq3:'هل يمكنني إحضار الفأرة أو لوحة المفاتيح الخاصة بي؟',faq3a:'نعم، بالتأكيد. جميع المحطات تحتوي على منافذ USB.',faq4:'هل هناك حد عمري؟',faq4a:'لا يوجد حد عمري خلال النهار. للعب الليلي (22:00-08:00) يحتاج من هم تحت 15 سنة إذن ولي الأمر.',faq5:'ما هي الألعاب المتاحة؟',faq5a:'CS2, Valorant, Fortnite, Call of Duty, EA FC, League of Legends, Dota 2, Apex Legends, Rocket League, GTA V, Minecraft, Overwatch 2, Rainbow Six, PUBG, Genshin Impact وغيرها الكثير.',
+    ctaTitle:'زر PLAYZ اليوم',ctaSub:'مفتوح يومياً — تعال والعب!',    from:'من',perHour:'/ ساعة',allNight:'/ كل الليل',perSession:'/ جلسة',popular:'شائع',
+    ctaAddrLbl:'العنوان',ctaHoursLbl:'الساعات',ctaFromLbl:'من',
+    ctaAddr:'شارع أوريهويلا 100، توريفيخا',ctaHours:'يومياً 10:00 – 02:00',ctaFrom:'من',ctaEmail:'info@playzgaming.es',mapText:'📍 شارع أوريهويلا 100، توريفيخا',mapLink:'فتح في خرائط جوجل ←',
+    footerIG:'انستغرام',footerTT:'تيك توك',footerWA:'واتساب',footerCopy:'© 2026 PLAYZ Gaming Center Torrevieja. جميع الحقوق محفوظة.',
+    statPC:'حاسوب',statPS5:'PS5 Pro',statFiber:'جيجابت',statOpen:'مفتوح يومياً',
+  }
+};
+
 const games = [
   {icon:'🎯',name:'CS2'},{icon:'🔫',name:'Valorant'},{icon:'⛏️',name:'Fortnite'},
   {icon:'⚔️',name:'League of Legends'},{icon:'💣',name:'Call of Duty'},{icon:'⚽',name:'EA FC'},
@@ -519,6 +618,20 @@ const games = [
 const track=document.getElementById('tickerTrack');
 track.innerHTML=[...games,...games].map(g=>'<div class="ticker-item"><span class="g-logo">'+g.icon+'</span>'+g.name+'</div>').join('');
 document.getElementById('gamesGrid').innerHTML=games.map(g=>'<div class="game-card reveal"><span class="gi">'+g.icon+'</span><div class="gn">'+g.name+'</div></div>').join('');
+
+// ─── LANGUAGE ───
+function setLang(l){
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));
+  document.documentElement.dir=l==='ar'?'rtl':'ltr';
+  document.querySelectorAll('[data-i]').forEach(el=>{
+    const k=el.dataset.i;
+    if(lang[l]&&lang[l][k])el.innerHTML=lang[l][k];
+  });
+  localStorage.setItem('playzLang',l);
+}
+document.querySelectorAll('.lang-btn').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+const savedLang=localStorage.getItem('playzLang')||'es';
+setLang(savedLang);
 
 const canvas=document.getElementById('particles'),ctx=canvas.getContext('2d');
 function resizeCanvas(){canvas.width=innerWidth;canvas.height=innerHeight}
@@ -550,7 +663,7 @@ function calcTotal(){const h=parseInt(hours.value)||1,p=parseInt(players.value)|
 platform.addEventListener('change',calcTotal);hours.addEventListener('input',calcTotal);players.addEventListener('input',calcTotal);
 document.getElementById('bookBtn').addEventListener('click',()=>{
   const p=platform.value==='pc'?'Gaming PC':'PlayStation 5',h=hours.value,pl=players.value,dt=dateInput.value,tm=document.getElementById('time').value,total=totalDisplay.textContent;
-  window.open('https://wa.me/34690991633?text=🎮 *Новая бронь PLAYZ*%0A%0A🖥 '+p+'%0A👥 '+pl+' player(s)%0A📅 '+dt+'%0A⏰ '+tm+'%0A⏳ '+h+' hour(s)%0A💰 *Итого: '+total+'*%0A%0AПодтвердите бронь!','_blank');
+  window.open('https://wa.me/34690991633?text=🎮 *Nueva reserva PLAYZ*%0A%0A🖥 '+p+'%0A👥 '+pl+' jugador(es)%0A📅 '+dt+'%0A⏰ '+tm+'%0A⏳ '+h+' hora(s)%0A💰 *Total: '+total+'*%0A%0A¡Confirma tu reserva!','_blank');
 });
 </script>
 </body>

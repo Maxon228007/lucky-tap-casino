@@ -3,16 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GAMING ZONE Torrevieja — Premium Gaming Lounge</title>
+<title>PLAYZ — Gaming Lounge & Esports Center Torrevieja</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;background:#05050a;color:#fff;overflow-x:hidden}
-
 #particles{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
-
 .nav{position:fixed;top:0;left:0;width:100%;z-index:100;padding:22px 48px;display:flex;justify-content:space-between;align-items:center;transition:.4s}
 .nav.scrolled{background:rgba(5,5,10,.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,245,212,.08);padding:14px 48px}
 .nav-logo{font-family:'Orbitron',sans-serif;font-size:1.1rem;font-weight:900;letter-spacing:4px;text-transform:uppercase;color:#fff;text-decoration:none}
@@ -22,99 +20,105 @@ body{font-family:'Inter',sans-serif;background:#05050a;color:#fff;overflow-x:hid
 .nav-links a::after{content:'';position:absolute;bottom:-6px;left:0;width:0;height:2px;background:linear-gradient(90deg,#00f5d4,#7b2ff7);transition:.4s;border-radius:2px}
 .nav-links a:hover{color:#fff}
 .nav-links a:hover::after{width:100%}
-.nav-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;z-index:101}
+.nav-burger{display:none;gap:5px;cursor:pointer;background:none;border:none;padding:4px;z-index:101;flex-direction:column}
 .nav-burger span{width:28px;height:2px;background:#fff;transition:.3s;border-radius:2px;transform-origin:center}
-.nav-burger.active span:nth-child(1){transform:translateY(7px) rotate(45deg);background:#00f5d4}
-.nav-burger.active span:nth-child(2){opacity:0;transform:scaleX(0)}
+.nav-burger.active span:first-child{transform:translateY(7px) rotate(45deg);background:#00f5d4}
+.nav-burger.active span:nth-child(2){opacity:0}
 .nav-burger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg);background:#00f5d4}
-
 section{position:relative;z-index:1}
-
-/* ── HERO ── */
 .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px;position:relative;overflow:hidden}
-.hero-orb{position:absolute;top:50%;left:50%;width:700px;height:700px;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(0,245,212,.06) 0%,rgba(123,47,247,.04) 40%,transparent 65%);border-radius:50%;pointer-events:none;animation:orbPulse 6s ease-in-out infinite}
-@keyframes orbPulse{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.6}50%{transform:translate(-50%,-50%) scale(1.2);opacity:1}}
 .hero::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:200px;background:linear-gradient(to top,#05050a,transparent);pointer-events:none}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 24px;border:1px solid rgba(0,245,212,.2);border-radius:50px;font-family:'Orbitron',sans-serif;font-size:.6rem;letter-spacing:3px;text-transform:uppercase;color:#00f5d4;margin-bottom:28px;opacity:0;animation:fadeUp .8s .2s forwards;text-shadow:0 0 20px rgba(0,245,212,.15)}
-.hero h1{font-family:'Orbitron',sans-serif;font-size:clamp(2.4rem,7vw,5.5rem);font-weight:900;line-height:1.08;margin-bottom:18px;opacity:0;animation:fadeUp .8s .4s forwards}
+.hero-orb{position:absolute;top:50%;left:50%;width:800px;height:800px;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(0,245,212,.05) 0%,rgba(123,47,247,.03) 40%,transparent 65%);border-radius:50%;pointer-events:none;animation:orbPulse 6s ease-in-out infinite}
+@keyframes orbPulse{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.6}50%{transform:translate(-50%,-50%) scale(1.15);opacity:1}}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 24px;border:1px solid rgba(0,245,212,.2);border-radius:50px;font-family:'Orbitron',sans-serif;font-size:.55rem;letter-spacing:3px;text-transform:uppercase;color:#00f5d4;margin-bottom:28px;opacity:0;animation:fadeUp .8s .2s forwards}
+.hero h1{font-family:'Orbitron',sans-serif;font-size:clamp(2.2rem,6vw,5rem);font-weight:900;line-height:1.08;margin-bottom:14px;opacity:0;animation:fadeUp .8s .4s forwards}
 .hero h1 .grad{background:linear-gradient(135deg,#00f5d4 20%,#7b2ff7 80%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero p{font-size:1.05rem;color:#999;max-width:560px;margin-bottom:32px;line-height:1.7;opacity:0;animation:fadeUp .8s .6s forwards}
+.hero p{font-size:1rem;color:#999;max-width:560px;margin-bottom:32px;line-height:1.7;opacity:0;animation:fadeUp .8s .6s forwards}
 .hero-actions{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;opacity:0;animation:fadeUp .8s .8s forwards}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 40px;border-radius:50px;font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:1.5px;text-decoration:none;transition:.4s;cursor:pointer;border:none;position:relative;overflow:hidden}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 40px;border-radius:50px;font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:1.5px;text-decoration:none;transition:.4s;cursor:pointer;border:none}
 .btn-primary{background:linear-gradient(135deg,#00f5d4,#00c9a8);color:#05050a}
 .btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,245,212,.25)}
 .btn-ghost{border:1px solid rgba(255,255,255,.1);color:#ccc;background:rgba(255,255,255,.03);backdrop-filter:blur(4px)}
 .btn-ghost:hover{border-color:rgba(0,245,212,.3);color:#00f5d4;transform:translateY(-3px);background:rgba(0,245,212,.06)}
-
-/* ── HERO STATS ── */
-.hero-stats{display:flex;gap:2px;border-radius:16px;overflow:hidden;margin-top:40px;border:1px solid rgba(255,255,255,.04);opacity:0;animation:fadeUp .8s 1s forwards}
+.hero-stats{display:flex;gap:2px;border-radius:16px;overflow:hidden;margin-top:36px;border:1px solid rgba(255,255,255,.04);opacity:0;animation:fadeUp .8s 1s forwards}
 .hero-stat{background:rgba(255,255,255,.02);backdrop-filter:blur(6px);padding:20px 32px;text-align:center;min-width:120px;transition:.3s}
 .hero-stat:hover{background:rgba(0,245,212,.04)}
 .hero-stat .val{font-family:'Orbitron',sans-serif;font-size:1.6rem;font-weight:900;color:#00f5d4}
 .hero-stat .lbl{font-size:.6rem;color:#666;text-transform:uppercase;letter-spacing:2px;margin-top:4px}
-
 .scroll-hint{position:absolute;bottom:60px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:#444;font-size:.6rem;letter-spacing:3px;text-transform:uppercase;animation:floatY 2.5s ease-in-out infinite;z-index:2}
 .scroll-hint .line{width:1px;height:50px;background:linear-gradient(to bottom,rgba(255,255,255,.1),transparent)}
-
-/* ── TICKER ── */
-.ticker-wrap{overflow:hidden;padding:18px 0;background:rgba(0,245,212,.02);border-top:1px solid rgba(255,255,255,.03);border-bottom:1px solid rgba(255,255,255,.03);position:relative;z-index:2}
+.ticker-wrap{overflow:hidden;padding:18px 0;background:rgba(0,245,212,.02);border-top:1px solid rgba(255,255,255,.03);border-bottom:1px solid rgba(255,255,255,.03);z-index:2}
 .ticker-track{display:flex;gap:48px;animation:tick 30s linear infinite;width:max-content}
 .ticker-track:hover{animation-play-state:paused}
 .ticker-item{display:flex;align-items:center;gap:10px;color:#666;font-size:.8rem;font-weight:600;white-space:nowrap;transition:.3s}
 .ticker-item:hover{color:#00f5d4}
 .ticker-item .g-logo{width:24px;height:24px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.9rem;background:rgba(255,255,255,.03)}
 @keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-
-/* ── ABOUT ── */
 .about{display:grid;grid-template-columns:1fr 1fr;min-height:80vh;gap:0}
 .about-img{position:relative;overflow:hidden;min-height:400px}
 .about-img img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;transition:1.2s}
 .about-img:hover img{transform:scale(1.05)}
-.about-img .shade{position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,245,212,.12),transparent 50%)}
-.about-img .border-accent{position:absolute;bottom:0;right:0;width:200px;height:200px;border-right:2px solid rgba(0,245,212,.15);border-bottom:2px solid rgba(0,245,212,.15)}
+.about-img .shade{position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,245,212,.1),transparent 50%)}
+.about-img .accent{position:absolute;bottom:0;right:0;width:200px;height:200px;border-right:2px solid rgba(0,245,212,.12);border-bottom:2px solid rgba(0,245,212,.12)}
 .about-text{display:flex;flex-direction:column;justify-content:center;padding:clamp(40px,8vw,100px)}
 .about-text .tag{font-family:'Orbitron',sans-serif;font-size:.6rem;letter-spacing:4px;text-transform:uppercase;color:#00f5d4;margin-bottom:16px}
-.about-text h2{font-size:clamp(1.6rem,3.5vw,2.6rem);font-weight:900;margin-bottom:18px;line-height:1.2}
-.about-text p{color:#999;line-height:1.8;margin-bottom:14px;font-size:.92rem}
+.about-text h2{font-size:clamp(1.5rem,3.5vw,2.5rem);font-weight:900;margin-bottom:18px;line-height:1.2}
+.about-text p{color:#999;line-height:1.8;margin-bottom:14px;font-size:.9rem}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
-.about-grid .item{display:flex;align-items:center;gap:10px;padding:12px 16px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.04);border-radius:12px;font-size:.82rem;transition:.3s}
+.about-grid .item{display:flex;align-items:center;gap:10px;padding:12px 16px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.04);border-radius:12px;font-size:.8rem;transition:.3s}
 .about-grid .item:hover{background:rgba(0,245,212,.05);border-color:rgba(0,245,212,.1);transform:translateX(6px)}
 .about-grid .item .ico{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0}
-.ico.cyan{background:rgba(0,245,212,.12);color:#00f5d4}
-.ico.purple{background:rgba(123,47,247,.12);color:#7b2ff7}
-.ico.gold{background:rgba(255,215,0,.1);color:#ffd700}
-
-/* ── GAMES ── */
-.games{padding:clamp(60px,8vw,90px) clamp(24px,5vw,60px);text-align:center;background:#080812}
+.ico.c{background:rgba(0,245,212,.12);color:#00f5d4}
+.ico.p{background:rgba(123,47,247,.12);color:#7b2ff7}
+.ico.g{background:rgba(255,215,0,.1);color:#ffd700}
+.features{padding:clamp(60px,8vw,90px) clamp(24px,5vw,60px);text-align:center;background:#080812}
+.features h2{font-family:'Orbitron',sans-serif;font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:700;margin-bottom:6px}
+.features .sub{color:#777;margin-bottom:36px;font-size:.85rem}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;max-width:960px;margin:0 auto}
+.feature-card{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);border-radius:18px;padding:30px 20px;text-align:center;transition:.4s}
+.feature-card:hover{transform:translateY(-5px);border-color:rgba(0,245,212,.12);background:rgba(0,245,212,.03)}
+.feature-card .fi{font-size:2.2rem;margin-bottom:10px;display:block}
+.feature-card h3{font-size:.9rem;font-weight:700;margin-bottom:4px}
+.feature-card p{font-size:.78rem;color:#777;line-height:1.5}
+.games{padding:clamp(50px,8vw,80px) clamp(24px,5vw,60px);text-align:center;background:#05050a}
 .games h2{font-family:'Orbitron',sans-serif;font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:700;margin-bottom:6px}
 .games .sub{color:#777;margin-bottom:32px;font-size:.85rem}
-.games-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:10px;max-width:780px;margin:0 auto}
-.game-card{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);border-radius:14px;padding:16px 10px;text-align:center;transition:.4s;cursor:default;position:relative;overflow:hidden}
-.game-card::before{content:'';position:absolute;inset:0;border-radius:14px;padding:1px;background:linear-gradient(135deg,transparent,transparent);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;transition:.4s;pointer-events:none}
-.game-card:hover{transform:translateY(-5px);background:rgba(0,245,212,.06)}
-.game-card:hover::before{background:linear-gradient(135deg,rgba(0,245,212,.3),transparent)}
+.games-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:10px;max-width:800px;margin:0 auto}
+.game-card{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);border-radius:14px;padding:16px 10px;text-align:center;transition:.4s;cursor:default}
+.game-card:hover{transform:translateY(-5px);background:rgba(0,245,212,.06);border-color:rgba(0,245,212,.15)}
 .game-card .gi{font-size:1.6rem;margin-bottom:6px;display:block}
 .game-card .gn{font-size:.72rem;font-weight:600;color:#aaa}
-
-/* ── PRICING ── */
-.pricing{padding:clamp(70px,10vw,110px) clamp(24px,5vw,60px);text-align:center;background:linear-gradient(180deg,#05050a 0%,#0a0a18 50%,#05050a 100%)}
+.zones{padding:clamp(60px,10vw,90px) clamp(24px,5vw,60px);background:linear-gradient(180deg,#05050a 0%,#0a0a18 100%);text-align:center}
+.zones h2{font-family:'Orbitron',sans-serif;font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:700;margin-bottom:6px}
+.zones .sub{color:#777;margin-bottom:36px;font-size:.85rem}
+.zone-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:960px;margin:0 auto}
+.zone-card{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:20px;padding:32px 20px;text-align:center;transition:.4s}
+.zone-card:hover{transform:translateY(-6px);border-color:rgba(0,245,212,.15);background:rgba(0,245,212,.03)}
+.zone-card .zi{font-size:2.4rem;margin-bottom:10px;display:block}
+.zone-card h3{font-size:.95rem;font-weight:700;margin-bottom:6px}
+.zone-card p{font-size:.78rem;color:#888;line-height:1.5}
+.pricing{padding:clamp(70px,10vw,100px) clamp(24px,5vw,60px);text-align:center;background:#05050a}
 .pricing h2{font-family:'Orbitron',sans-serif;font-size:clamp(1.5rem,3vw,2rem);font-weight:700;margin-bottom:6px}
 .pricing .sub{color:#777;margin-bottom:40px;font-size:.85rem}
-.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;max-width:1040px;margin:0 auto}
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;max-width:960px;margin:0 auto}
 .price-card{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:20px;padding:36px 24px;transition:.4s;position:relative;overflow:hidden}
-.price-card::before{content:'';position:absolute;top:-1px;left:-1px;right:-1px;height:3px;background:linear-gradient(90deg,transparent,rgba(0,245,212,.2),transparent);opacity:0;transition:.4s}
 .price-card:hover{transform:translateY(-8px);border-color:rgba(0,245,212,.15);background:rgba(0,245,212,.03)}
-.price-card:hover::before{opacity:1}
 .price-card.featured{border-color:rgba(0,245,212,.2);background:rgba(0,245,212,.04)}
-.price-card.featured::before{opacity:1;background:linear-gradient(90deg,transparent,#00f5d4,transparent)}
 .price-card.featured .badge{position:absolute;top:14px;right:14px;font-family:'Orbitron',sans-serif;font-size:.45rem;letter-spacing:2px;padding:5px 12px;border-radius:50px;background:linear-gradient(135deg,#00f5d4,#00c9a8);color:#05050a;font-weight:700}
 .price-card .pi{font-size:2.4rem;margin-bottom:12px;display:block}
 .price-card h3{font-size:1rem;font-weight:700;margin-bottom:2px}
 .price-card .pp{font-family:'Orbitron',sans-serif;font-size:2rem;font-weight:900;color:#00f5d4;margin:12px 0}
 .price-card .pp small{font-size:.75rem;font-weight:400;color:#666;font-family:'Inter',sans-serif}
-.price-card p{font-size:.78rem;color:#777;line-height:1.5}
-
-/* ── FOOD ── */
+.price-card p{font-size:.78rem;color:#888;line-height:1.5}
+.reviews{padding:clamp(60px,10vw,90px) clamp(24px,5vw,60px);text-align:center;background:#080812}
+.reviews h2{font-family:'Orbitron',sans-serif;font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:700;margin-bottom:6px}
+.reviews .sub{color:#777;margin-bottom:36px;font-size:.85rem}
+.review-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;max-width:900px;margin:0 auto}
+.review-card{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);border-radius:18px;padding:28px 24px;text-align:left;transition:.4s}
+.review-card:hover{transform:translateY(-4px);border-color:rgba(0,245,212,.1)}
+.review-card .stars{color:#ffd700;font-size:.85rem;margin-bottom:8px}
+.review-card p{color:#999;font-size:.85rem;line-height:1.6;margin-bottom:14px;font-style:italic}
+.review-card .author{font-size:.75rem;font-weight:700;color:#ccc}
 .food{padding:clamp(60px,10vw,90px) clamp(24px,5vw,60px);text-align:center;background:#05050a}
 .food h2{font-family:'Orbitron',sans-serif;font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:700;margin-bottom:6px}
 .food .sub{color:#777;margin-bottom:36px;font-size:.85rem}
@@ -123,14 +127,11 @@ section{position:relative;z-index:1}
 .food-item:hover{background:rgba(0,245,212,.05);border-color:rgba(0,245,212,.12);transform:translateY(-4px)}
 .food-item .fi{font-size:2.2rem;margin-bottom:8px;display:block}
 .food-item h3{font-size:.9rem;font-weight:700;margin-bottom:2px}
-.food-item .fp{font-family:'Orbitron',sans-serif;font-size:1.2rem;font-weight:900;color:#00f5d4}
-
-/* ── BOOKING ── */
+.food-item .fp{font-size:1.2rem;font-weight:900;color:#00f5d4}
 .booking{padding:clamp(70px,10vw,100px) clamp(24px,5vw,60px);text-align:center;background:linear-gradient(0deg,#05050a 0%,#0a0a18 100%)}
 .booking h2{font-family:'Orbitron',sans-serif;font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:700;margin-bottom:6px}
 .booking .sub{color:#777;margin-bottom:36px;font-size:.85rem}
-.book-card{max-width:520px;margin:0 auto;border-radius:24px;padding:36px;text-align:left;position:relative;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);overflow:hidden}
-.book-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,245,212,.15),transparent)}
+.book-card{max-width:520px;margin:0 auto;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:24px;padding:36px;text-align:left}
 .fg{margin-bottom:16px}
 .fg label{display:block;font-size:.65rem;text-transform:uppercase;letter-spacing:2px;color:#666;margin-bottom:6px;font-weight:600}
 .fr{display:grid;grid-template-columns:1fr 1fr;gap:14px}
@@ -141,12 +142,10 @@ select option{background:#0a0a18;color:#fff}
 .book-total .tt{font-size:.7rem;text-transform:uppercase;letter-spacing:1px;color:#888}
 .book-total .am{font-family:'Orbitron',sans-serif;font-size:1.8rem;font-weight:900;color:#00f5d4}
 .booking .btn{width:100%;justify-content:center;margin-top:8px;padding:18px;font-size:.85rem}
-
-/* ── GALLERY ── */
 .gallery{padding:clamp(60px,10vw,90px) clamp(24px,5vw,60px);text-align:center;background:#080812}
 .gallery h2{font-family:'Orbitron',sans-serif;font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:700;margin-bottom:6px}
 .gallery .sub{color:#777;margin-bottom:32px;font-size:.85rem}
-.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:960px;margin:0 auto}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:1000px;margin:0 auto}
 .gallery-item{position:relative;overflow:hidden;border-radius:14px;aspect-ratio:16/10;cursor:pointer}
 .gallery-item img{width:100%;height:100%;object-fit:cover;transition:.8s}
 .gallery-item:hover img{transform:scale(1.1)}
@@ -154,29 +153,32 @@ select option{background:#0a0a18;color:#fff}
 .gallery-item:hover .gl{opacity:1}
 .gallery-item .glb{position:absolute;bottom:14px;left:14px;font-size:.65rem;font-weight:600;color:#fff;opacity:0;transform:translateY(12px);transition:.5s;z-index:2;letter-spacing:1px}
 .gallery-item:hover .glb{opacity:1;transform:translateY(0)}
-
-/* ── CTA ── */
+.faq{padding:clamp(60px,10vw,80px) clamp(24px,5vw,60px);text-align:center;background:#05050a}
+.faq h2{font-family:'Orbitron',sans-serif;font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:700;margin-bottom:6px}
+.faq .sub{color:#777;margin-bottom:36px;font-size:.85rem}
+.faq-list{max-width:700px;margin:0 auto;text-align:left}
+.faq-item{border-bottom:1px solid rgba(255,255,255,.04);padding:16px 0}
+.faq-q{display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-size:.9rem;font-weight:600;color:#ccc;gap:12px}
+.faq-q .arrow{font-size:.7rem;color:#555;transition:.3s;flex-shrink:0}
+.faq-item.open .faq-q .arrow{transform:rotate(180deg);color:#00f5d4}
+.faq-a{max-height:0;overflow:hidden;transition:.4s;font-size:.82rem;color:#888;line-height:1.6}
+.faq-item.open .faq-a{max-height:200px;padding-top:12px}
 .cta{padding:clamp(70px,10vw,100px) clamp(24px,5vw,60px);text-align:center;position:relative;overflow:hidden}
 .cta::before{content:'';position:absolute;top:50%;left:50%;width:600px;height:600px;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(0,245,212,.04),transparent 60%);pointer-events:none}
 .cta h2{font-family:'Orbitron',sans-serif;font-size:clamp(1.5rem,3vw,2rem);font-weight:700;margin-bottom:8px}
 .cta .sub{color:#999;margin-bottom:24px;font-size:.9rem;max-width:400px;margin-left:auto;margin-right:auto}
-.cta-info{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;margin-top:32px}
+.cta-info{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;margin-top:32px}
 .cta-info .ci{display:flex;flex-direction:column;align-items:center;gap:4px}
 .cta-info .ci .cico{font-size:1.4rem}
 .cta-info .ci .cl{font-size:.55rem;text-transform:uppercase;letter-spacing:3px;color:#555}
 .cta-info .ci .cv{font-size:.85rem;color:#bbb}
-
-/* ── MAP ── */
-.map{height:260px;background:#0a0a18;display:flex;align-items:center;justify-content:center;color:#555;font-size:.75rem;letter-spacing:2px;text-transform:uppercase;position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.03)}
-
-/* ── FOOTER ── */
-.footer{text-align:center;padding:32px 20px;border-top:1px solid rgba(255,255,255,.03);position:relative;z-index:1}
+.map{height:260px;background:#0a0a18;display:flex;align-items:center;justify-content:center;color:#555;font-size:.75rem;letter-spacing:2px;text-transform:uppercase;z-index:1;border-top:1px solid rgba(255,255,255,.03);flex-direction:column;gap:8px}
+.map a{color:#00f5d4;text-decoration:none;font-size:.7rem;letter-spacing:1px}
+.footer{text-align:center;padding:32px 20px;border-top:1px solid rgba(255,255,255,.03);z-index:1}
 .footer-links{display:flex;justify-content:center;gap:28px;margin-bottom:12px}
 .footer-links a{color:#555;text-decoration:none;font-size:.7rem;transition:.3s;letter-spacing:1px}
 .footer-links a:hover{color:#00f5d4}
 .footer p{color:#333;font-size:.65rem}
-
-/* ── MOBILE ── */
 @media(max-width:768px){
   .nav{padding:16px 20px}
   .nav.scrolled{padding:12px 20px}
@@ -191,14 +193,12 @@ select option{background:#0a0a18;color:#fff}
   .gallery-grid{grid-template-columns:repeat(2,1fr)}
   .games-grid{grid-template-columns:repeat(4,1fr)}
   .pricing-grid{grid-template-columns:1fr 1fr}
+  .zone-grid{grid-template-columns:1fr}
   .book-card{padding:24px}
   .cta-info{gap:24px}
 }
-
-/* ── ANIMATIONS ── */
 @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 @keyframes floatY{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-12px)}}
-
 .reveal{opacity:0;transform:translateY(40px);transition:.8s cubic-bezier(.25,.46,.45,.94)}
 .reveal.visible{opacity:1;transform:translateY(0)}
 </style>
@@ -208,9 +208,10 @@ select option{background:#0a0a18;color:#fff}
 <canvas id="particles"></canvas>
 
 <nav class="nav" id="nav">
-  <a href="#" class="nav-logo">GAMING<span>ZONE</span></a>
+  <a href="#" class="nav-logo">PLAY<span>Z</span></a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#about">About</a></li>
+    <li><a href="#zones">Zones</a></li>
     <li><a href="#games">Games</a></li>
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="#book">Book</a></li>
@@ -224,17 +225,17 @@ select option{background:#0a0a18;color:#fff}
 <!-- ─── HERO ─── -->
 <section class="hero">
   <div class="hero-orb"></div>
-  <div class="hero-badge">⚡ Now Open in Torrevieja</div>
-  <h1>Level Up<br><span class="grad">Your Game</span></h1>
-  <p>20 high-end PCs · 2 PlayStation 5 · 3€/hour. Hot dogs, drinks & energy. Come play!</p>
+  <div class="hero-badge">🚀 Now Open in Torrevieja</div>
+  <h1>The One & Only<br><span class="grad">Esports Lounge</span></h1>
+  <p>75 high-end PCs · RTX 5080/5090 · PlayStation 5 Pro · 10 Gbps Fiber. Torrevieja's #1 gaming destination.</p>
   <div class="hero-actions">
     <a href="#book" class="btn btn-primary">Book Now</a>
-    <a href="#games" class="btn btn-ghost">Explore</a>
+    <a href="#zones" class="btn btn-ghost">Explore Zones</a>
   </div>
   <div class="hero-stats">
-    <div class="hero-stat"><div class="val">20</div><div class="lbl">Gaming PCs</div></div>
-    <div class="hero-stat"><div class="val">2</div><div class="lbl">PS5</div></div>
-    <div class="hero-stat"><div class="val">3€</div><div class="lbl">Per Hour</div></div>
+    <div class="hero-stat"><div class="val">75</div><div class="lbl">Gaming PCs</div></div>
+    <div class="hero-stat"><div class="val">2</div><div class="lbl">PS5 Pro</div></div>
+    <div class="hero-stat"><div class="val">10</div><div class="lbl">Gbps Fiber</div></div>
     <div class="hero-stat"><div class="val">~</div><div class="lbl">Open Daily</div></div>
   </div>
   <div class="scroll-hint">
@@ -243,7 +244,7 @@ select option{background:#0a0a18;color:#fff}
   </div>
 </section>
 
-<!-- ─── GAME TICKER ─── -->
+<!-- ─── TICKER ─── -->
 <div class="ticker-wrap">
   <div class="ticker-track" id="tickerTrack"></div>
 </div>
@@ -252,19 +253,70 @@ select option{background:#0a0a18;color:#fff}
 <section class="about" id="about">
   <div class="about-img">
     <div class="shade"></div>
-    <div class="border-accent"></div>
-    <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1000&q=80" alt="">
+    <div class="accent"></div>
+    <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1000&q=80" alt="PLAYZ Gaming Lounge">
   </div>
   <div class="about-text">
     <div class="tag">About</div>
-    <h2>Your Gaming Lounge in Torrevieja</h2>
-    <p>20 мощных ПК с RTX, 2 PlayStation 5 с 4K-экранами — всё для твоей игры. Приходи один или с друзьями, играй в CS2, Valorant, Fortnite и любые другие игры на ультра-настройках.</p>
-    <p>У нас есть хот-доги, напитки и энергетики, чтобы не отвлекаться от игры. Всё по лучшим ценам на побережье.</p>
+    <h2>Premium Gaming Lounge & Esports Center in Torrevieja</h2>
+    <p>We combine a high-end gaming center, internet café, and esports arena into one unique experience. Whether you want to play for fun, train seriously, or just hang out with friends — PLAYZ is your spot.</p>
+    <p>Equipped with RTX 5080-5090 graphics, 240Hz monitors, PS5 Pro stations, and 10 Gbps fiber internet. Plus a Chill Out Lounge, VIP rooms, and regular tournaments.</p>
     <div class="about-grid">
-      <div class="item"><span class="ico cyan">🖥️</span> 20 × RTX Gaming PCs</div>
-      <div class="item"><span class="ico purple">🎮</span> 2 × PlayStation 5</div>
-      <div class="item"><span class="ico cyan">🌐</span> 5 Gbps Fiber Internet</div>
-      <div class="item"><span class="ico gold">🌭</span> Hot Dogs 3€ · Drinks 2€</div>
+      <div class="item"><span class="ico c">🖥️</span> 75 × RTX 5080/5090 PCs</div>
+      <div class="item"><span class="ico p">🎮</span> PS5 Pro · 4K 120Hz</div>
+      <div class="item"><span class="ico c">🌐</span> 10 Gbps Fiber Internet</div>
+      <div class="item"><span class="ico g">🏆</span> Weekly Tournaments</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FEATURES ─── -->
+<section class="features" id="features">
+  <h2 class="reveal">Why PLAYZ?</h2>
+  <p class="sub reveal">The ultimate gaming experience on the Costa Blanca</p>
+  <div class="features-grid">
+    <div class="feature-card reveal">
+      <span class="fi">🖥️</span>
+      <h3>High-End PCs</h3>
+      <p>RTX 5060-5090 GPUs, 240Hz monitors, RAZER & Logitech G Pro gear. Maximum performance, zero limits.</p>
+    </div>
+    <div class="feature-card reveal">
+      <span class="fi">🎮</span>
+      <h3>Console Zone</h3>
+      <p>PlayStation 5 & PS5 Pro on OLED 8K displays. All exclusives, 120fps, maximum comfort.</p>
+    </div>
+    <div class="feature-card reveal">
+      <span class="fi">🏆</span>
+      <h3>Tournaments</h3>
+      <p>Weekly competitions with prizes. Rank up in the League of PLAYZ. Night gaming every weekend.</p>
+    </div>
+    <div class="feature-card reveal">
+      <span class="fi">🌐</span>
+      <h3>10 Gbps Fiber</h3>
+      <p>Ultra-fast internet. Zero lag. Online gaming at the highest level you can't find anywhere else.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ZONES ─── -->
+<section class="zones" id="zones">
+  <h2 class="reveal">Our Gaming Zones</h2>
+  <p class="sub reveal">Three specialized zones for every kind of gamer</p>
+  <div class="zone-grid">
+    <div class="zone-card reveal">
+      <span class="zi">🖥️</span>
+      <h3>PC Gaming</h3>
+      <p>High-performance systems with RTX 5080-5090, 240Hz monitors, premium peripherals. Maximum power, maximum precision.</p>
+    </div>
+    <div class="zone-card reveal">
+      <span class="zi">🎮</span>
+      <h3>Consoles</h3>
+      <p>PlayStation 5 & PS5 Pro with 4K 120Hz displays. All exclusive titles in next-gen quality.</p>
+    </div>
+    <div class="zone-card reveal">
+      <span class="zi">👑</span>
+      <h3>VIP Lounges</h3>
+      <p>Private rooms for groups, birthdays, team training. Professional space with zero distractions.</p>
     </div>
   </div>
 </section>
@@ -272,39 +324,62 @@ select option{background:#0a0a18;color:#fff}
 <!-- ─── GAMES ─── -->
 <section class="games" id="games">
   <h2 class="reveal">Available Games</h2>
-  <p class="sub reveal">Play the most popular titles</p>
+  <p class="sub reveal">Play the most popular titles on our systems</p>
   <div class="games-grid" id="gamesGrid"></div>
 </section>
 
 <!-- ─── PRICING ─── -->
 <section class="pricing" id="pricing">
   <h2 class="reveal">Pricing</h2>
-  <p class="sub reveal">Simple & fair</p>
+  <p class="sub reveal">Simple & fair — all gaming time never expires</p>
   <div class="pricing-grid">
     <div class="price-card reveal">
       <span class="pi">🕐</span>
       <h3>PC Gaming</h3>
       <div class="pp">3€ <small>/ hour</small></div>
-      <p>Play any game on high-end PCs. 1h = 3€, 3h = 8€</p>
+      <p>Play any game on high-end PCs. All time is saved in your account and never expires.</p>
     </div>
     <div class="price-card reveal">
       <span class="pi">🎮</span>
       <h3>PlayStation 5</h3>
       <div class="pp">4€ <small>/ hour</small></div>
-      <p>Next-gen console on 4K displays. 1h = 4€, 3h = 10€</p>
+      <p>Next-gen console gaming on 4K 120Hz displays. PS5 Pro also available.</p>
     </div>
     <div class="price-card featured reveal">
       <span class="badge">POPULAR</span>
       <span class="pi">🌙</span>
       <h3>Night Gaming</h3>
-      <div class="pp">15€ <small>/ all night</small></div>
-      <p>22:00 – 08:00 unlimited play. Fri & Sat only</p>
+      <div class="pp">20€ <small>/ all night</small></div>
+      <p>Fri & Sat 22:00 – 08:00 unlimited play. The ultimate weekend experience.</p>
     </div>
     <div class="price-card reveal">
       <span class="pi">🥳</span>
-      <h3>Group (5+)</h3>
-      <div class="pp">2.5€ <small>/ hour/person</small></div>
-      <p>Bring friends — discount for groups of 5+</p>
+      <h3>VIP Room</h3>
+      <div class="pp">From 50€ <small>/ session</small></div>
+      <p>Private room for groups, birthdays, team training & events. Contact us for pricing.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── REVIEWS ─── -->
+<section class="reviews" id="reviews">
+  <h2 class="reveal">What Gamers Say</h2>
+  <p class="sub reveal">The gaming community of Torrevieja has spoken</p>
+  <div class="review-grid">
+    <div class="review-card reveal">
+      <div class="stars">★★★★★</div>
+      <p>"The PCs are top-notch, with zero lag, and the peripherals are clearly high quality. The atmosphere is very gamer-oriented but comfortable, and the staff are super attentive. We'll definitely be back."</p>
+      <div class="author">— Laura Lopez</div>
+    </div>
+    <div class="review-card reveal">
+      <div class="stars">★★★★★</div>
+      <p>"The best place to play ranked games in style. Comfortable chairs, top-of-the-line screens, and a good connection."</p>
+      <div class="author">— Alberto Torres</div>
+    </div>
+    <div class="review-card reveal">
+      <div class="stars">★★★★★</div>
+      <p>"We went to a tournament and everything was very well organised: sound, stands, space and good vibes. If you like eSports or just want to play properly without spending a fortune on a PC — this is the place."</p>
+      <div class="author">— Antonio Sanchez</div>
     </div>
   </div>
 </section>
@@ -323,14 +398,14 @@ select option{background:#0a0a18;color:#fff}
 
 <!-- ─── BOOKING ─── -->
 <section class="booking" id="book">
-  <h2 class="reveal">Book Your Spot</h2>
-  <p class="sub reveal">Reserve a PC or PlayStation</p>
+  <h2 class="reveal">Book Your Session</h2>
+  <p class="sub reveal">Reserve a PC, PlayStation, or VIP room</p>
   <div class="book-card reveal">
     <div class="fg">
       <label>Platform</label>
       <select id="platform">
-        <option value="pc">Gaming PC · 3€/h (20 available)</option>
-        <option value="ps5">PlayStation 5 · 4€/h (2 available)</option>
+        <option value="pc">Gaming PC · 3€/h</option>
+        <option value="ps5">PlayStation 5 · 4€/h</option>
       </select>
     </div>
     <div class="fr">
@@ -364,32 +439,66 @@ select option{background:#0a0a18;color:#fff}
 <!-- ─── GALLERY ─── -->
 <section class="gallery" id="gallery">
   <h2 class="reveal">Gallery</h2>
-  <p class="sub reveal">See our gaming zone</p>
+  <p class="sub reveal">Take a virtual tour of PLAYZ</p>
   <div class="gallery-grid">
     <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=600&q=80" alt=""><div class="gl"></div><span class="glb">PC Zone</span></div>
-    <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=600&q=80" alt=""><div class="gl"></div><span class="glb">Setup</span></div>
+    <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=600&q=80" alt=""><div class="gl"></div><span class="glb">Gaming Setup</span></div>
     <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1552820728-8b83bb6b1033?w=600&q=80" alt=""><div class="gl"></div><span class="glb">Tournaments</span></div>
     <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=600&q=80" alt=""><div class="gl"></div><span class="glb">Chill Zone</span></div>
-    <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1616588589676-62b3bd4ff6d2?w=600&q=80" alt=""><div class="gl"></div><span class="glb">PS5 Lounge</span></div>
+    <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1616588589676-62b3bd4ff6d2?w=600&q=80" alt=""><div class="gl"></div><span class="glb">PS5 Pro</span></div>
     <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1603808544614-4515fe63eca8?w=600&q=80" alt=""><div class="gl"></div><span class="glb">VIP Room</span></div>
+    <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1560253023-3ec5d502959f?w=600&q=80" alt="Gaming lounge interior"><div class="gl"></div><span class="glb">Esports Arena</span></div>
+    <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1551103782-8ab07afd45c1?w=600&q=80" alt="Gaming center"><div class="gl"></div><span class="glb">VIP Lounge</span></div>
+  </div>
+</section>
+
+<!-- ─── FAQ ─── -->
+<section class="faq" id="faq">
+  <h2 class="reveal">FAQ</h2>
+  <p class="sub reveal">Everything you need to know</p>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q">Do I need to book in advance?<span class="arrow">▼</span></div>
+      <div class="faq-a">For walk-ins, just come by! For large groups, events, birthdays, night gaming or VIP rooms, we recommend booking in advance.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Does my gaming time expire?<span class="arrow">▼</span></div>
+      <div class="faq-a">No. All purchased gaming time is saved in your account and never expires.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Can I bring my own mouse, keyboard or controller?<span class="arrow">▼</span></div>
+      <div class="faq-a">Yes, absolutely. All stations have USB ports ready for your own gear.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is there an age limit?<span class="arrow">▼</span></div>
+      <div class="faq-a">No minimum age during the day. For night gaming (22:00-08:00), players under 15 need guardian authorization.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What games are available?<span class="arrow">▼</span></div>
+      <div class="faq-a">CS2, Valorant, Fortnite, Call of Duty, EA FC, League of Legends, Dota 2, Apex Legends, Rocket League, GTA V, Minecraft, Overwatch 2, Rainbow Six, PUBG, Genshin Impact, and many more. You can use your own Steam/Epic/Riot accounts or our guest accounts.</div>
+    </div>
   </div>
 </section>
 
 <!-- ─── CTA ─── -->
 <section class="cta" id="contact">
-  <h2 class="reveal">Contact</h2>
-  <p class="sub reveal">Come play today! Open every day 10:00 – 02:00</p>
+  <h2 class="reveal">Visit PLAYZ Today</h2>
+  <p class="sub reveal">Open every day — come play!</p>
   <div class="hero-actions reveal">
     <a href="tel:+34690991633" class="btn btn-primary">📞 +34 690 99 16 33</a>
   </div>
   <div class="cta-info reveal">
     <div class="ci"><span class="cico">📍</span><span class="cl">Address</span><span class="cv">C. De Orihuela 100, Torrevieja</span></div>
-    <div class="ci"><span class="cico">🕐</span><span class="cl">Hours</span><span class="cv">Mon-Sun · 10:00 – 02:00</span></div>
-    <div class="ci"><span class="cico">💶</span><span class="cl">Price</span><span class="cv">From 3€ / hour</span></div>
+    <div class="ci"><span class="cico">🕐</span><span class="cl">Hours</span><span class="cv">Daily 10:00 – 02:00</span></div>
+    <div class="ci"><span class="cico">💶</span><span class="cl">From</span><span class="cv">3€ / hour</span></div>
+    <div class="ci"><span class="cico">📧</span><span class="cl">Email</span><span class="cv">info@playzgaming.es</span></div>
   </div>
 </section>
 
-<div class="map"><span>📍 C. De Orihuela 100, Torrevieja</span></div>
+<div class="map">
+  <span>📍 C. De Orihuela 100, Torrevieja</span>
+  <a href="https://maps.google.com/?q=C+De+Orihuela+100+Torrevieja" target="_blank">Open in Google Maps →</a>
+</div>
 
 <footer class="footer">
   <div class="footer-links">
@@ -397,112 +506,53 @@ select option{background:#0a0a18;color:#fff}
     <a href="#">TikTok</a>
     <a href="#">WhatsApp</a>
   </div>
-  <p>&copy; 2026 GAMINGZONE Torrevieja. All rights reserved.</p>
+  <p>© 2026 PLAYZ Gaming Center Torrevieja. All rights reserved.</p>
 </footer>
 
 <script>
-// ─── GAME TICKER ───
 const games = [
   {icon:'🎯',name:'CS2'},{icon:'🔫',name:'Valorant'},{icon:'⛏️',name:'Fortnite'},
   {icon:'⚔️',name:'League of Legends'},{icon:'💣',name:'Call of Duty'},{icon:'⚽',name:'EA FC'},
   {icon:'🤖',name:'Apex Legends'},{icon:'🏎️',name:'Rocket League'},{icon:'💀',name:'GTA V'},
   {icon:'🧟',name:'Dota 2'},{icon:'☕',name:'Overwatch 2'},{icon:'🎯',name:'Rainbow Six'},
   {icon:'🟦',name:'Minecraft'},{icon:'🌀',name:'Genshin Impact'},{icon:'👻',name:'PUBG'},
+  {icon:'🗡️',name:'World of Warcraft'},{icon:'😈',name:'Diablo IV'},{icon:'🧊',name:'Roblox'},
 ];
+const track=document.getElementById('tickerTrack');
+track.innerHTML=[...games,...games].map(g=>'<div class="ticker-item"><span class="g-logo">'+g.icon+'</span>'+g.name+'</div>').join('');
+document.getElementById('gamesGrid').innerHTML=games.map(g=>'<div class="game-card reveal"><span class="gi">'+g.icon+'</span><div class="gn">'+g.name+'</div></div>').join('');
 
-const track = document.getElementById('tickerTrack');
-track.innerHTML = [...games,...games].map(g =>
-  `<div class="ticker-item"><span class="g-logo">${g.icon}</span>${g.name}</div>`
-).join('');
-
-// ─── GAMES GRID ───
-document.getElementById('gamesGrid').innerHTML = games.map(g =>
-  `<div class="game-card reveal"><span class="gi">${g.icon}</span><div class="gn">${g.name}</div></div>`
-).join('');
-
-// ─── PARTICLES ───
-const canvas = document.getElementById('particles');
-const ctx = canvas.getContext('2d');
+const canvas=document.getElementById('particles'),ctx=canvas.getContext('2d');
 function resizeCanvas(){canvas.width=innerWidth;canvas.height=innerHeight}
-resizeCanvas();
-addEventListener('resize',resizeCanvas);
+resizeCanvas();addEventListener('resize',resizeCanvas);
 const pArr=[];
-for(let i=0;i<70;i++){
-  pArr.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,vx:(Math.random()-0.5)*0.3,vy:(Math.random()-0.5)*0.3,r:Math.random()*2+0.5,alpha:Math.random()*0.3+0.05});
-}
+for(let i=0;i<80;i++)pArr.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,vx:(Math.random()-0.5)*0.3,vy:(Math.random()-0.5)*0.3,r:Math.random()*2+0.5,alpha:Math.random()*0.3+0.05});
 function draw(){
   ctx.clearRect(0,0,canvas.width,canvas.height);
-  for(const p of pArr){
-    ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-    ctx.fillStyle=`rgba(0,245,212,${p.alpha})`;ctx.fill();
-    p.x+=p.vx;p.y+=p.vy;
-    if(p.x<0)p.x=canvas.width;if(p.x>canvas.width)p.x=0;
-    if(p.y<0)p.y=canvas.height;if(p.y>canvas.height)p.y=0;
-  }
-  for(let i=0;i<pArr.length;i++){
-    for(let j=i+1;j<pArr.length;j++){
-      const dx=pArr[i].x-pArr[j].x,dy=pArr[i].y-pArr[j].y;
-      const dist=Math.sqrt(dx*dx+dy*dy);
-      if(dist<140){
-        ctx.beginPath();ctx.moveTo(pArr[i].x,pArr[i].y);ctx.lineTo(pArr[j].x,pArr[j].y);
-        ctx.strokeStyle=`rgba(0,245,212,${0.04*(1-dist/140)})`;ctx.lineWidth=0.5;ctx.stroke();
-      }
-    }
-  }
+  for(const p of pArr){ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba(0,245,212,'+p.alpha+')';ctx.fill();p.x+=p.vx;p.y+=p.vy;if(p.x<0)p.x=canvas.width;if(p.x>canvas.width)p.x=0;if(p.y<0)p.y=canvas.height;if(p.y>canvas.height)p.y=0}
+  for(let i=0;i<pArr.length;i++)for(let j=i+1;j<pArr.length;j++){const dx=pArr[i].x-pArr[j].x,dy=pArr[i].y-pArr[j].y,dist=Math.sqrt(dx*dx+dy*dy);if(dist<150){ctx.beginPath();ctx.moveTo(pArr[i].x,pArr[i].y);ctx.lineTo(pArr[j].x,pArr[j].y);ctx.strokeStyle='rgba(0,245,212,'+(0.04*(1-dist/150))+')';ctx.lineWidth=0.5;ctx.stroke()}}
   requestAnimationFrame(draw);
 }
 draw();
 
-// ─── NAV ───
 addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>60));
-const burger=document.getElementById('burger');
-const navLinks=document.getElementById('navLinks');
+const burger=document.getElementById('burger'),navLinks=document.getElementById('navLinks');
 burger.addEventListener('click',()=>{burger.classList.toggle('active');navLinks.classList.toggle('open')});
 navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{burger.classList.remove('active');navLinks.classList.remove('open')}));
 
-// ─── REVEAL ───
-const revealObserver=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.12});
+const revealObserver=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.1});
 document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
 
-// ─── BOOKING ───
-const platform=document.getElementById('platform');
-const hours=document.getElementById('hours');
-const players=document.getElementById('players');
-const totalDisplay=document.getElementById('totalDisplay');
-const dateInput=document.getElementById('date');
+document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>{q.parentElement.classList.toggle('open')}));
+
+const platform=document.getElementById('platform'),hours=document.getElementById('hours'),players=document.getElementById('players'),totalDisplay=document.getElementById('totalDisplay'),dateInput=document.getElementById('date');
 const today=new Date().toISOString().split('T')[0];
-dateInput.setAttribute('min',today);
-dateInput.value=today;
-
-function calcTotal(){
-  const h=parseInt(hours.value)||1;
-  const p=parseInt(players.value)||1;
-  const isPC=platform.value==='pc';
-  const rate=isPC?3:4;
-  let total=rate*h*p;
-  if(p>=5)total=Math.round(total*0.85);
-  totalDisplay.textContent=total+'€';
-}
-platform.addEventListener('change',calcTotal);
-hours.addEventListener('input',calcTotal);
-players.addEventListener('input',calcTotal);
-
+dateInput.setAttribute('min',today);dateInput.value=today;
+function calcTotal(){const h=parseInt(hours.value)||1,p=parseInt(players.value)||1,rate=platform.value==='pc'?3:4;let t=rate*h*p;if(p>=5)t=Math.round(t*0.85);totalDisplay.textContent=t+'€'}
+platform.addEventListener('change',calcTotal);hours.addEventListener('input',calcTotal);players.addEventListener('input',calcTotal);
 document.getElementById('bookBtn').addEventListener('click',()=>{
-  const plat=platform.value==='pc'?'Gaming PC':'PlayStation 5';
-  const h=hours.value;
-  const p=players.value;
-  const date=dateInput.value;
-  const time=document.getElementById('time').value;
-  const total=totalDisplay.textContent;
-  const msg='🎮 *Новая бронь GAMINGZONE*%0A%0A'+
-    '🖥 '+plat+'%0A'+
-    '👥 '+p+' player(s)%0A'+
-    '📅 '+date+'%0A'+
-    '⏰ '+time+'%0A'+
-    '⏳ '+h+' hour(s)%0A'+
-    '💰 *Итого: '+total+'*%0A%0A'+
-    'Подтвердите бронь!';
-  window.open('https://wa.me/34690991633?text='+msg,'_blank');
+  const p=platform.value==='pc'?'Gaming PC':'PlayStation 5',h=hours.value,pl=players.value,dt=dateInput.value,tm=document.getElementById('time').value,total=totalDisplay.textContent;
+  window.open('https://wa.me/34690991633?text=🎮 *Новая бронь PLAYZ*%0A%0A🖥 '+p+'%0A👥 '+pl+' player(s)%0A📅 '+dt+'%0A⏰ '+tm+'%0A⏳ '+h+' hour(s)%0A💰 *Итого: '+total+'*%0A%0AПодтвердите бронь!','_blank');
 });
 </script>
 </body>

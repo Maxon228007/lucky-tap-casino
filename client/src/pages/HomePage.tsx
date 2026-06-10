@@ -61,6 +61,12 @@ export default function HomePage({ user, onNavigate }: HomePageProps) {
         </button>
       </div>
 
+      <div className="w-full max-w-sm glass-card p-3 text-center cursor-pointer hover:bg-white/5 transition">
+        <div className="h-16 bg-gradient-to-r from-purple-900/40 to-pink-900/40 rounded flex items-center justify-center border border-dashed border-gray-600">
+          <span className="text-gray-500 text-sm">— Ad Banner —</span>
+        </div>
+      </div>
+
       <div className="glass-card w-full max-w-sm p-4">
         <h3 className="text-sm font-semibold text-gray-400 mb-2">Quick Stats</h3>
         <div className="grid grid-cols-2 gap-2 text-sm">

@@ -1,6 +1,9 @@
-import initSqlJs, { Database as SqlJsDatabase } from 'sql.js';
+import initSqlJs from 'sql.js';
 import fs from 'fs';
 import path from 'path';
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type SqlJsDatabase = any;
 
 const DB_PATH = path.join(__dirname, '..', '..', 'data', 'lucky_tap.db');
 

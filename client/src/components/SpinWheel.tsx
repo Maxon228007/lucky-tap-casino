@@ -30,7 +30,9 @@ export default function SpinWheel({ onSpinComplete, disabled, spinning, onSpinSt
     const segmentAngle = 360 / SEGMENTS.length;
     const targetSegment = Math.floor(Math.random() * SEGMENTS.length);
     const extraSpins = 5 + Math.floor(Math.random() * 3);
-    const targetRotation = rotation + (extraSpins * 360) + (targetSegment * segmentAngle) + (segmentAngle / 2);
+
+    const segCenter = targetSegment * segmentAngle + segmentAngle / 2;
+    const targetRotation = rotation + (extraSpins * 360) + (360 - segCenter);
 
     setRotation(targetRotation);
 
@@ -47,6 +49,25 @@ export default function SpinWheel({ onSpinComplete, disabled, spinning, onSpinSt
   return (
     <div className="flex flex-col items-center gap-6">
       <div className="relative">
+        {/* Pointer outside the wheel */}
+        <div
+          className="absolute z-10"
+          style={{
+            top: -6,
+            left: '50%',
+            marginLeft: -10,
+          }}
+        >
+          <div
+            className="w-5 h-8"
+            style={{
+              clipPath: 'polygon(50% 100%, 0 0, 100% 0)',
+              background: '#FFD700',
+              filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.5))',
+            }}
+          />
+        </div>
+
         <div
           className="spin-wheel"
           style={{
@@ -93,23 +114,6 @@ export default function SpinWheel({ onSpinComplete, disabled, spinning, onSpinSt
           })}
 
           <div className="absolute inset-0 rounded-full border-4 border-primary/30" />
-
-          <div
-            className="absolute top-1/2 left-1/2 w-0 h-0 z-10"
-            style={{
-              marginLeft: -10,
-              marginTop: -140,
-            }}
-          >
-            <div
-              className="w-5 h-8"
-              style={{
-                clipPath: 'polygon(50% 100%, 0 0, 100% 0)',
-                background: '#FFD700',
-                filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.5))',
-              }}
-            />
-          </div>
         </div>
 
         <button

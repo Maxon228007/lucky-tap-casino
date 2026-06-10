@@ -21,6 +21,12 @@ app.get('/api/health', (_req, res) => {
   res.json({ status: 'ok', time: new Date().toISOString() });
 });
 
+const staticPath = path.join(__dirname, '..', 'static');
+app.use('/kebab', express.static(staticPath));
+app.get('/kebab', (_req, res) => {
+  res.sendFile(path.join(staticPath, 'kebab.html'));
+});
+
 const distPath = path.join(__dirname, '..', '..', 'client', 'dist');
 app.use(express.static(distPath));
 app.get('*', (_req, res) => {

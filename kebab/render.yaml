@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: el-rey-kebab
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    autoDeploy: true

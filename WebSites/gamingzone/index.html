@@ -88,11 +88,13 @@ section{position:relative;z-index:1}
 .games{padding:clamp(50px,8vw,80px) clamp(24px,5vw,60px);text-align:center;background:#05050a}
 .games h2{font-family:'Orbitron',sans-serif;font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:700;margin-bottom:6px}
 .games .sub{color:#777;margin-bottom:32px;font-size:.85rem}
-.games-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:10px;max-width:800px;margin:0 auto}
-.game-card{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);border-radius:14px;padding:16px 10px;text-align:center;transition:.4s;cursor:default}
-.game-card:hover{transform:translateY(-5px);background:rgba(0,245,212,.06);border-color:rgba(0,245,212,.15)}
-.game-card .gi{font-size:1.6rem;margin-bottom:6px;display:block}
-.game-card .gn{font-size:.72rem;font-weight:600;color:#aaa}
+.games-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:12px;max-width:820px;margin:0 auto}
+.game-card{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:3/4;cursor:default;border:1px solid rgba(255,255,255,.06);transition:.4s}
+.game-card img{width:100%;height:100%;object-fit:cover;transition:.6s}
+.game-card:hover{transform:translateY(-5px);border-color:rgba(0,245,212,.2)}
+.game-card:hover img{transform:scale(1.06)}
+.game-card .g-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(5,5,10,.85) 0%,rgba(5,5,10,.3) 50%,transparent 80%);transition:.3s}
+.game-card .gn{position:absolute;bottom:10px;left:0;right:0;text-align:center;font-size:.68rem;font-weight:700;color:#fff;letter-spacing:.5px;text-shadow:0 2px 8px rgba(0,0,0,.5)}
 .zones{padding:clamp(60px,10vw,90px) clamp(24px,5vw,60px);background:linear-gradient(180deg,#05050a 0%,#0a0a18 100%);text-align:center}
 .zones h2{font-family:'Orbitron',sans-serif;font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:700;margin-bottom:6px}
 .zones .sub{color:#777;margin-bottom:36px;font-size:.85rem}
@@ -102,19 +104,19 @@ section{position:relative;z-index:1}
 .zone-card .zi{font-size:2.4rem;margin-bottom:10px;display:block}
 .zone-card h3{font-size:.95rem;font-weight:700;margin-bottom:6px}
 .zone-card p{font-size:.78rem;color:#888;line-height:1.5}
-.pricing{padding:clamp(70px,10vw,100px) clamp(24px,5vw,60px);text-align:center;background:#05050a}
-.pricing h2{font-family:'Orbitron',sans-serif;font-size:clamp(1.5rem,3vw,2rem);font-weight:700;margin-bottom:6px}
-.pricing .sub{color:#777;margin-bottom:40px;font-size:.85rem}
-.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;max-width:960px;margin:0 auto}
-.price-card{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:20px;padding:36px 24px;transition:.4s;position:relative;overflow:hidden}
-.price-card:hover{transform:translateY(-8px);border-color:rgba(0,245,212,.15);background:rgba(0,245,212,.03)}
-.price-card.featured{border-color:rgba(0,245,212,.2);background:rgba(0,245,212,.04)}
-.price-card.featured .badge{position:absolute;top:14px;right:14px;font-family:'Orbitron',sans-serif;font-size:.45rem;letter-spacing:2px;padding:5px 12px;border-radius:50px;background:linear-gradient(135deg,#00f5d4,#00c9a8);color:#05050a;font-weight:700}
-.price-card .pi{font-size:2.4rem;margin-bottom:12px;display:block}
-.price-card h3{font-size:1rem;font-weight:700;margin-bottom:2px}
-.price-card .pp{font-family:'Orbitron',sans-serif;font-size:2rem;font-weight:900;color:#00f5d4;margin:12px 0}
-.price-card .pp small{font-size:.75rem;font-weight:400;color:#666;font-family:'Inter',sans-serif}
-.price-card p{font-size:.78rem;color:#888;line-height:1.5}
+.pricing{padding:clamp(30px,5vw,50px) clamp(24px,5vw,60px);text-align:center;background:#080812}
+.pricing h2{font-family:'Orbitron',sans-serif;font-size:clamp(1rem,2vw,1.4rem);font-weight:700;margin-bottom:4px}
+.pricing .sub{color:#777;margin-bottom:0;font-size:.75rem}
+.price-shelf{display:flex;gap:1px;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.05);max-width:860px;margin:16px auto 0;flex-wrap:wrap}
+.price-slot{background:rgba(255,255,255,.02);padding:14px 18px;flex:1;min-width:120px;text-align:center;transition:.3s}
+.price-slot:hover{background:rgba(0,245,212,.04)}
+.price-slot .ps-icon{font-size:1.1rem;margin-bottom:2px}
+.price-slot .ps-title{font-size:.65rem;font-weight:600;color:#aaa;text-transform:uppercase;letter-spacing:1px}
+.price-slot .ps-price{font-family:'Orbitron',sans-serif;font-size:1.1rem;font-weight:900;color:#00f5d4;margin-top:2px}
+.price-slot .ps-price small{font-size:.55rem;font-weight:400;color:#666;font-family:'Inter',sans-serif}
+.price-slot.featured{background:rgba(0,245,212,.06);border-left:1px solid rgba(0,245,212,.1);border-right:1px solid rgba(0,245,212,.1)}
+.price-hours{display:flex;justify-content:center;gap:24px;margin-top:12px;font-size:.7rem;color:#777;flex-wrap:wrap}
+.price-hours span{display:flex;align-items:center;gap:6px}
 .reviews{padding:clamp(60px,10vw,90px) clamp(24px,5vw,60px);text-align:center;background:#080812}
 .reviews h2{font-family:'Orbitron',sans-serif;font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:700;margin-bottom:6px}
 .reviews .sub{color:#777;margin-bottom:36px;font-size:.85rem}
@@ -127,12 +129,18 @@ section{position:relative;z-index:1}
 .food{padding:clamp(60px,10vw,90px) clamp(24px,5vw,60px);text-align:center;background:#05050a}
 .food h2{font-family:'Orbitron',sans-serif;font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:700;margin-bottom:6px}
 .food .sub{color:#777;margin-bottom:36px;font-size:.85rem}
-.food-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:14px;max-width:650px;margin:0 auto}
-.food-item{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);border-radius:16px;padding:24px 16px;transition:.4s}
-.food-item:hover{background:rgba(0,245,212,.05);border-color:rgba(0,245,212,.12);transform:translateY(-4px)}
-.food-item .fi{font-size:2.2rem;margin-bottom:8px;display:block}
-.food-item h3{font-size:.9rem;font-weight:700;margin-bottom:2px}
-.food-item .fp{font-size:1.2rem;font-weight:900;color:#00f5d4}
+.food-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;max-width:680px;margin:0 auto}
+.food-item{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:16px;overflow:hidden;transition:.4s}
+.food-item:hover{transform:translateY(-4px);border-color:rgba(0,245,212,.15)}
+.food-item .fi-wrap{width:100%;aspect-ratio:4/3;overflow:hidden;position:relative}
+.food-item .fi-wrap img{width:100%;height:100%;object-fit:cover;transition:.6s}
+.food-item:hover .fi-wrap img{transform:scale(1.08)}
+.food-item .fi-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(5,5,10,.6),transparent 50%)}
+.food-item .fi-label{position:absolute;bottom:10px;left:12px;font-size:.65rem;font-weight:600;color:#fff;opacity:0;transform:translateY(8px);transition:.4s}
+.food-item:hover .fi-label{opacity:1;transform:translateY(0)}
+.food-item .fi-body{padding:14px 16px 16px;display:flex;justify-content:space-between;align-items:center}
+.food-item h3{font-size:.85rem;font-weight:700}
+.food-item .fp{font-size:1.1rem;font-weight:900;color:#00f5d4}
 .booking{padding:clamp(70px,10vw,100px) clamp(24px,5vw,60px);text-align:center;background:linear-gradient(0deg,#05050a 0%,#0a0a18 100%)}
 .booking h2{font-family:'Orbitron',sans-serif;font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:700;margin-bottom:6px}
 .booking .sub{color:#777;margin-bottom:36px;font-size:.85rem}
@@ -344,32 +352,32 @@ select option{background:#0a0a18;color:#fff}
 <section class="pricing" id="pricing">
   <h2 class="reveal" data-i="priceTitle">Pricing</h2>
   <p class="sub reveal" data-i="priceSub">Simple & fair — all gaming time never expires</p>
-  <div class="pricing-grid">
-    <div class="price-card reveal">
-      <span class="pi">🕐</span>
-      <h3 data-i="p1h">PC Gaming</h3>
-      <div class="pp">3€ <small data-i="perHour">/ hour</small></div>
-      <p data-i="p1p">Play any game on high-end PCs. All time is saved in your account and never expires.</p>
+  <div class="price-shelf reveal">
+    <div class="price-slot">
+      <div class="ps-icon">🕐</div>
+      <div class="ps-title" data-i="p1h">PC Gaming</div>
+      <div class="ps-price">3€ <small data-i="perHour">/h</small></div>
     </div>
-    <div class="price-card reveal">
-      <span class="pi">🎮</span>
-      <h3 data-i="p2h">PlayStation 5</h3>
-      <div class="pp">4€ <small data-i="perHour">/ hour</small></div>
-      <p data-i="p2p">Next-gen console gaming on 4K 120Hz displays. PS5 Pro also available.</p>
+    <div class="price-slot">
+      <div class="ps-icon">🎮</div>
+      <div class="ps-title" data-i="p2h">PS5</div>
+      <div class="ps-price">4€ <small data-i="perHour">/h</small></div>
     </div>
-    <div class="price-card featured reveal">
-      <span class="badge" data-i="popular">POPULAR</span>
-      <span class="pi">🌙</span>
-      <h3 data-i="p3h">Night Gaming</h3>
-      <div class="pp">20€ <small data-i="allNight">/ all night</small></div>
-      <p data-i="p3p">Fri & Sat 22:00 – 08:00 unlimited play. The ultimate weekend experience.</p>
+    <div class="price-slot featured">
+      <div class="ps-icon">🌙</div>
+      <div class="ps-title" data-i="p3h">Night Gaming</div>
+      <div class="ps-price">20€ <small>🌙</small></div>
     </div>
-    <div class="price-card reveal">
-      <span class="pi">🥳</span>
-      <h3 data-i="p4h">VIP Room</h3>
-      <div class="pp"><span data-i="from">From</span> 50€ <small data-i="perSession">/ session</small></div>
-      <p data-i="p4p">Private room for groups, birthdays, team training & events. Contact us for pricing.</p>
+    <div class="price-slot">
+      <div class="ps-icon">👑</div>
+      <div class="ps-title" data-i="p4h">VIP Room</div>
+      <div class="ps-price"><span data-i="from">From</span> 50€</div>
     </div>
+  </div>
+  <div class="price-hours reveal">
+    <span>🕐 <span data-i="hoursLabel">Open Daily</span> 10:00 – 02:00</span>
+    <span>💶 3€ – 20€</span>
+    <span>🌐 10 Gbps</span>
   </div>
 </section>
 
@@ -401,10 +409,22 @@ select option{background:#0a0a18;color:#fff}
   <h2 class="reveal" data-i="foodTitle">Food & Drinks</h2>
   <p class="sub reveal" data-i="foodSub">Keep your energy up</p>
   <div class="food-grid">
-    <div class="food-item reveal"><span class="fi">🌭</span><h3>Hot Dog</h3><div class="fp">3€</div></div>
-    <div class="food-item reveal"><span class="fi">🥤</span><h3>Soft Drink</h3><div class="fp">2€</div></div>
-    <div class="food-item reveal"><span class="fi">🧃</span><h3>Energy Drink</h3><div class="fp">2.5€</div></div>
-    <div class="food-item reveal"><span class="fi">🍿</span><h3>Snacks</h3><div class="fp">2€</div></div>
+    <div class="food-item reveal">
+      <div class="fi-wrap"><img src="https://images.unsplash.com/photo-1619740455993-9e612b1af08a?w=400&h=300&fit=crop&q=80" alt="Hot Dog" loading="lazy"><div class="fi-overlay"></div><span class="fi-label">🌭 Hot Dog</span></div>
+      <div class="fi-body"><h3>Hot Dog</h3><div class="fp">3€</div></div>
+    </div>
+    <div class="food-item reveal">
+      <div class="fi-wrap"><img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=300&fit=crop&q=80" alt="Soft Drink" loading="lazy"><div class="fi-overlay"></div><span class="fi-label">🥤 Soft Drink</span></div>
+      <div class="fi-body"><h3>Soft Drink</h3><div class="fp">2€</div></div>
+    </div>
+    <div class="food-item reveal">
+      <div class="fi-wrap"><img src="https://images.unsplash.com/photo-1622485831931-0c3697777675?w=400&h=300&fit=crop&q=80" alt="Energy Drink" loading="lazy"><div class="fi-overlay"></div><span class="fi-label">🧃 Energy Drink</span></div>
+      <div class="fi-body"><h3>Energy Drink</h3><div class="fp">2.5€</div></div>
+    </div>
+    <div class="food-item reveal">
+      <div class="fi-wrap"><img src="https://images.unsplash.com/photo-1572809223420-498405892e2a?w=400&h=300&fit=crop&q=80" alt="Snacks" loading="lazy"><div class="fi-overlay"></div><span class="fi-label">🍿 Snacks</span></div>
+      <div class="fi-body"><h3>Snacks</h3><div class="fp">2€</div></div>
+    </div>
   </div>
 </section>
 
@@ -530,7 +550,7 @@ const lang = {
     featTitle:'¿Por qué PLAYZ?',featSub:'La experiencia gaming definitiva en la Costa Blanca',f1h:'PC de Alta Gama',f1p:'GPU RTX 5060-5090, monitores 240Hz, periféricos RAZER y Logitech G Pro.',f2h:'Zona Consolas',f2p:'PlayStation 5 & PS5 Pro en pantallas OLED 8K. Todas las exclusivas, 120fps.',f3h:'Torneos',f3p:'Competiciones semanales con premios. Sube en la Liga PLAYZ. Gaming nocturno.',f4h:'Fibra 10 Gbps',f4p:'Internet ultrarrápido. Cero lag. Gaming online al más alto nivel.',
     zoneTitle:'Nuestras Zonas Gaming',zoneSub:'Tres zonas especializadas para cada tipo de gamer',z1h:'PC Gaming',z1p:'Sistemas RTX 5080-5090, monitores 240Hz, periféricos premium.',z2h:'Consolas',z2p:'PS5 & PS5 Pro con pantallas 4K 120Hz. Todos los títulos exclusivos.',z3h:'Salas VIP',z3p:'Espacios privados para grupos, cumpleaños, entrenamientos. Sin distracciones.',
     gameTitle:'Juegos Disponibles',gameSub:'Juega los títulos más populares',
-    priceTitle:'Precios',priceSub:'Simples y justos — el tiempo nunca caduca',p1h:'PC Gaming',p1p:'Juega en PCs de alta gama. Todo el tiempo se guarda en tu cuenta.',p2h:'PlayStation 5',p2p:'Consolas next-gen en pantallas 4K 120Hz. PS5 Pro disponible.',p3h:'Gaming Nocturno',p3p:'Vie y Sáb 22:00-08:00. Juego ilimitado toda la noche.',p4h:'VIP Room',p4p:'Habitación privada para grupos, eventos y entrenamientos.',
+    priceTitle:'Precios',priceSub:'Simples y justos — el tiempo nunca caduca',p1h:'PC Gaming',p2h:'PS5',p3h:'Gaming Nocturno',p4h:'VIP Room',hoursLabel:'Abierto',
     revTitle:'Lo que Dicen los Gamers',revSub:'La comunidad gaming de Torrevieja ha hablado',r1:'"Los PCs son de primera, cero lag y los periféricos de alta calidad. El ambiente es muy gamer pero cómodo, y el personal súper atento. Volveremos sin duda."',r2:'"El mejor sitio para jugar partidas competitivas con estilo. Sillas cómodas, pantallas de primera y buena conexión."',r3:'"Fuimos a un torneo y todo estaba muy bien organizado: sonido, stands, espacio y buen rollo. Si te gustan los esports — este es tu sitio."',
     foodTitle:'Comida y Bebida',foodSub:'Mantén tu energía al máximo',
     bookTitle:'Reserva tu Sesión',bookSub:'Reserva un PC, PlayStation o sala VIP',bookPlatform:'Plataforma',bookDate:'Fecha',bookHours:'Horas',bookFrom:'Desde',bookPlayers:'Jugadores',bookTotal:'Total',bookBtnWA:'📩 Reservar por WhatsApp',
@@ -551,7 +571,7 @@ const lang = {
     featTitle:'Why PLAYZ?',featSub:'The ultimate gaming experience on the Costa Blanca',f1h:'High-End PCs',f1p:'RTX 5060-5090 GPUs, 240Hz monitors, RAZER & Logitech G Pro gear.',f2h:'Console Zone',f2p:'PlayStation 5 & PS5 Pro on OLED 8K displays. All exclusives, 120fps.',f3h:'Tournaments',f3p:'Weekly competitions with prizes. Rank up in the League of PLAYZ.',f4h:'10 Gbps Fiber',f4p:'Ultra-fast internet. Zero lag. Online gaming at the highest level.',
     zoneTitle:'Our Gaming Zones',zoneSub:'Three specialized zones for every kind of gamer',z1h:'PC Gaming',z1p:'RTX 5080-5090 systems, 240Hz monitors, premium peripherals.',z2h:'Consoles',z2p:'PS5 & PS5 Pro with 4K 120Hz displays. All exclusive titles.',z3h:'VIP Lounges',z3p:'Private rooms for groups, birthdays, team training.',
     gameTitle:'Available Games',gameSub:'Play the most popular titles on our systems',
-    priceTitle:'Pricing',priceSub:'Simple & fair — all gaming time never expires',p1h:'PC Gaming',p1p:'Play any game on high-end PCs. All time saved in your account.',p2h:'PlayStation 5',p2p:'Next-gen console gaming on 4K 120Hz displays. PS5 Pro available.',p3h:'Night Gaming',p3p:'Fri & Sat 22:00-08:00 unlimited play. The ultimate weekend experience.',p4h:'VIP Room',p4p:'Private room for groups, birthdays, team training & events.',
+    priceTitle:'Pricing',priceSub:'Simple & fair — all gaming time never expires',p1h:'PC Gaming',p2h:'PS5',p3h:'Night Gaming',p4h:'VIP Room',hoursLabel:'Open Daily',
     revTitle:'What Gamers Say',revSub:'The gaming community of Torrevieja has spoken',r1:'"The PCs are top-notch, with zero lag, and the peripherals are clearly high quality. We\'ll definitely be back."',r2:'"The best place to play ranked games in style. Comfortable chairs, top-of-the-line screens, and a good connection."',r3:'"We went to a tournament and everything was very well organised: sound, stands, space and good vibes."',
     foodTitle:'Food & Drinks',foodSub:'Keep your energy up',
     bookTitle:'Book Your Session',bookSub:'Reserve a PC, PlayStation, or VIP room',bookPlatform:'Platform',bookDate:'Date',bookHours:'Hours',bookFrom:'From',bookPlayers:'Players',bookTotal:'Total',bookBtnWA:'📩 Book via WhatsApp',
@@ -572,7 +592,7 @@ const lang = {
     featTitle:'Почему PLAYZ?',featSub:'Лучший гейминг-опыт на Коста-Бланке',f1h:'Мощные ПК',f1p:'GPU RTX 5060-5090, мониторы 240 Гц, периферия RAZER и Logitech G Pro.',f2h:'Консольная зона',f2p:'PS5 и PS5 Pro на OLED 8K дисплеях. Все эксклюзивы, 120fps.',f3h:'Турниры',f3p:'Еженедельные соревнования с призами. Повышай ранг в лиге PLAYZ.',f4h:'10 Гбит/с Интернет',f4p:'Ультрабыстрый интернет. Ноль лагов. Игры на максимальном уровне.',
     zoneTitle:'Наши игровые зоны',zoneSub:'Три зоны для каждого типа геймеров',z1h:'ПК',z1p:'Системы RTX 5080-5090, мониторы 240 Гц, премиум периферия.',z2h:'Консоли',z2p:'PS5 и PS5 Pro с 4K 120 Гц экранами. Все эксклюзивы.',z3h:'VIP Комнаты',z3p:'Приватные комнаты для компаний, дней рождений и тренировок.',
     gameTitle:'Доступные игры',gameSub:'Играй в популярнейшие тайтлы',
-    priceTitle:'Цены',priceSub:'Честно и просто — время никогда не сгорает',p1h:'ПК',p1p:'Играй на мощных ПК. Время сохраняется на аккаунте.',p2h:'PlayStation 5',p2p:'Консоли нового поколения на 4K 120 Гц. PS5 Pro доступна.',p3h:'Ночной гейминг',p3p:'Пт и Сб 22:00-08:00 безлимитная игра. Лучший уикенд.',p4h:'VIP Комната',p4p:'Приватная комната для компаний, дней рождений и ивентов.',
+    priceTitle:'Цены',priceSub:'Честно и просто — время никогда не сгорает',p1h:'ПК',p2h:'PS5',p3h:'Ночной гейминг',p4h:'VIP',hoursLabel:'Ежедневно',
     revTitle:'Отзывы геймеров',revSub:'Игровое сообщество Торревьехи оценило',r1:'"ПК высшего уровня, ноль лагов, периферия отличного качества. Атмосфера очень геймерская, персонал внимательный. Вернёмся обязательно."',r2:'"Лучшее место для рейтинговых игр. Удобные кресла, топовые экраны, отличное соединение."',r3:'"Были на турнире — всё отлично организовано: звук, стенды, пространство. Если любишь киберспорт — это твоё место."',
     foodTitle:'Еда и напитки',foodSub:'Подзарядись',
     bookTitle:'Забронируй сессию',bookSub:'Забронируй ПК, PlayStation или VIP комнату',bookPlatform:'Платформа',bookDate:'Дата',bookHours:'Часы',bookFrom:'С',bookPlayers:'Игроки',bookTotal:'Итого',bookBtnWA:'📩 Забронировать в WhatsApp',
@@ -593,7 +613,7 @@ const lang = {
     featTitle:'لماذا PLAYZ؟',featSub:'تجربة الألعاب المثلى على ساحل كوستا بلانكا',f1h:'أجهزة عالية الأداء',f1p:'معالجات RTX 5060-5090 وشاشات 240Hz ومعدات RAZER وLogitech G Pro.',f2h:'منطقة الأجهزة',f2p:'PS5 و PS5 Pro على شاشات OLED 8K.',f3h:'بطولات',f3p:'مسابقات أسبوعية بجوائز. ارتقِ في دوري PLAYZ.',f4h:'ألياف 10 جيجابت',f4p:'إنترنت فائق السرعة. بدون تأخير. العب بأعلى مستوى.',
     zoneTitle:'مناطق الألعاب لدينا',zoneSub:'ثلاث مناطق متخصصة لكل نوع من اللاعبين',z1h:'أجهزة الكمبيوتر',z1p:'أنظمة RTX 5080-5090 وشاشات 240Hz وملحقات فاخرة.',z2h:'الأجهزة المنزلية',z2p:'PS5 و PS5 Pro مع شاشات 4K 120Hz.',z3h:'غرف VIP',z3p:'غرف خاصة للمجموعات وأعياد الميلاد والتدريبات الجماعية.',
     gameTitle:'الألعاب المتاحة',gameSub:'العب أشهر الألعاب على أنظمتنا',
-    priceTitle:'الأسعار',priceSub:'بسيطة وعادلة — وقت اللعب لا ينتهي أبداً',p1h:'أجهزة الكمبيوتر',p1p:'العب أي لعبة على أجهزة عالية الأداء. الوقت محفوظ في حسابك.',p2h:'بلاي ستيشن 5',p2p:'ألعاب الجيل الجديد على شاشات 4K 120Hz. PS5 Pro متوفر.',p3h:'اللعب الليلي',p3p:'الجمعة والسبت 22:00-08:00 لعب غير محدود طوال الليل.',p4h:'غرفة VIP',p4p:'غرفة خاصة للمجموعات وأعياد الميلاد والفعاليات.',
+    priceTitle:'الأسعار',priceSub:'بسيطة وعادلة — وقت اللعب لا ينتهي أبداً',p1h:'حاسوب',p2h:'PS5',p3h:'اللعب الليلي',p4h:'VIP',hoursLabel:'مفتوح يومياً',
     revTitle:'ماذا يقول اللاعبون',revSub:'مجتمع الألعاب في توريفيخا يتحدث',r1:'"أجهزة الكمبيوتر من الدرجة الأولى بدون تأخير وجودة الملحقات عالية. الجو مناسب جداً للاعبين لكنه مريح. سنعود بالتأكيد."',r2:'"أفضل مكان للعب المباريات التنافسية. كراسي مريحة وشاشات ممتازة واتصال جيد."',r3:'"ذهبنا إلى بطولة وكان كل شيء منظماً جداً: الصوت والمساحة والطاقة الإيجابية."',
     foodTitle:'الطعام والشراب',foodSub:'حافظ على طاقتك',
     bookTitle:'احجز جلستك',bookSub:'احجز جهاز كمبيوتر أو بلاي ستيشن أو غرفة VIP',bookPlatform:'المنصة',bookDate:'التاريخ',bookHours:'الساعات',bookFrom:'من',bookPlayers:'اللاعبون',bookTotal:'المجموع',bookBtnWA:'📩 احجز عبر واتساب',
@@ -615,9 +635,17 @@ const games = [
   {icon:'🟦',name:'Minecraft'},{icon:'🌀',name:'Genshin Impact'},{icon:'👻',name:'PUBG'},
   {icon:'🗡️',name:'World of Warcraft'},{icon:'😈',name:'Diablo IV'},{icon:'🧊',name:'Roblox'},
 ];
+const splashImgs = [
+  'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=300&h=400&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=300&h=400&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=300&h=400&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1603808544614-4515fe63eca8?w=300&h=400&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=300&h=400&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1551103782-8ab07afd45c1?w=300&h=400&fit=crop&q=80',
+];
 const track=document.getElementById('tickerTrack');
 track.innerHTML=[...games,...games].map(g=>'<div class="ticker-item"><span class="g-logo">'+g.icon+'</span>'+g.name+'</div>').join('');
-document.getElementById('gamesGrid').innerHTML=games.map(g=>'<div class="game-card reveal"><span class="gi">'+g.icon+'</span><div class="gn">'+g.name+'</div></div>').join('');
+document.getElementById('gamesGrid').innerHTML=games.map((g,i)=>'<div class="game-card reveal"><img src="'+splashImgs[i%splashImgs.length]+'" alt="'+g.name+'" loading="lazy"><div class="g-overlay"></div><div class="gn">'+g.icon+' '+g.name+'</div></div>').join('');
 
 // ─── LANGUAGE ───
 function setLang(l){

@@ -88,7 +88,8 @@ section{position:relative;z-index:1}
 .feature-card p{font-size:.72rem;color:#777;line-height:1.4}
 .games{padding:clamp(32px,5vw,50px) clamp(24px,5vw,60px);text-align:center;background:#05050a}
 .games h2{font-family:'Orbitron',sans-serif;font-size:clamp(1.1rem,2vw,1.4rem);font-weight:700;margin-bottom:4px}
-.games .sub{color:#777;margin-bottom:16px;font-size:.78rem}
+.games .sub{color:#777;margin-bottom:8px;font-size:.78rem}
+.game-note{color:#777;font-size:.65rem;margin-bottom:14px;display:flex;align-items:center;justify-content:center;gap:6px}
 .games-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(80px,1fr));gap:6px;max-width:720px;margin:0 auto}
 .game-card{border-radius:10px;padding:10px 6px;text-align:center;cursor:default;transition:.4s;position:relative;overflow:hidden}
 .game-card .g-bg{position:absolute;inset:0;border-radius:10px;opacity:.12;transition:.4s}
@@ -355,6 +356,7 @@ section{position:relative;z-index:1}
 <section class="games" id="games">
   <h2 class="reveal" data-i="gameTitle">Available Games</h2>
   <p class="sub reveal" data-i="gameSub">Play the most popular titles on our systems</p>
+  <p class="game-note reveal">🎮 <span data-i="steamNote">Must have your own Steam account</span></p>
   <div class="games-grid" id="gamesGrid"></div>
 </section>
 
@@ -538,7 +540,7 @@ const lang = {
     aboutG1:'75 × RTX 5080/5090 PCs',aboutG2:'PS5 Pro · 4K 120Hz',aboutG3:'Fibra 10 Gbps',aboutG4:'Torneos Semanales',
     featTitle:'¿Por qué PLAYZ?',featSub:'La experiencia gaming definitiva en la Costa Blanca',f1h:'PC de Alta Gama',f1p:'GPU RTX 5060-5090, monitores 240Hz, periféricos RAZER y Logitech G Pro.',f2h:'Zona Consolas',f2p:'PlayStation 5 & PS5 Pro en pantallas OLED 8K. Todas las exclusivas, 120fps.',f3h:'Torneos',f3p:'Competiciones semanales con premios. Sube en la Liga PLAYZ. Gaming nocturno.',f4h:'Fibra 10 Gbps',f4p:'Internet ultrarrápido. Cero lag. Gaming online al más alto nivel.',
     locTitle:'Ubicación',locSub:'Encuéntranos en el corazón de Torrevieja',locAddr:'C. De Orihuela 100, Torrevieja',locMap:'Abrir en Google Maps →',locHours:'Diario 10:00 – 02:00',locEveryDay:'Abierto todos los días',locCall:'Llámanos',
-    gameTitle:'Juegos Disponibles',gameSub:'Juega los títulos más populares',
+    gameTitle:'Juegos Disponibles',gameSub:'Juega los títulos más populares',steamNote:'Necesitas tu cuenta de Steam',
     priceTitle:'Precios',priceSub:'Simples y justos — el tiempo nunca caduca',p1h:'PC Gaming',p2h:'PS5',p3h:'Gaming Nocturno',p4h:'VIP Room',hoursLabel:'Abierto',
     revTitle:'Lo que Dicen los Gamers',revSub:'La comunidad gaming de Torrevieja ha hablado',r1:'"Los PCs son de primera, cero lag y los periféricos de alta calidad. El ambiente es muy gamer pero cómodo, y el personal súper atento. Volveremos sin duda."',r2:'"El mejor sitio para jugar partidas competitivas con estilo. Sillas cómodas, pantallas de primera y buena conexión."',r3:'"Fuimos a un torneo y todo estaba muy bien organizado: sonido, stands, espacio y buen rollo. Si te gustan los esports — este es tu sitio."',
     foodTitle:'Comida y Bebida',foodSub:'Mantén tu energía al máximo',
@@ -559,7 +561,7 @@ const lang = {
     aboutG1:'75 × RTX 5080/5090 PCs',aboutG2:'PS5 Pro · 4K 120Hz',aboutG3:'10 Gbps Fiber Internet',aboutG4:'Weekly Tournaments',
     featTitle:'Why PLAYZ?',featSub:'The ultimate gaming experience on the Costa Blanca',f1h:'High-End PCs',f1p:'RTX 5060-5090 GPUs, 240Hz monitors, RAZER & Logitech G Pro gear.',f2h:'Console Zone',f2p:'PlayStation 5 & PS5 Pro on OLED 8K displays. All exclusives, 120fps.',f3h:'Tournaments',f3p:'Weekly competitions with prizes. Rank up in the League of PLAYZ.',f4h:'10 Gbps Fiber',f4p:'Ultra-fast internet. Zero lag. Online gaming at the highest level.',
     locTitle:'Location',locSub:'Find us in the heart of Torrevieja',locAddr:'C. De Orihuela 100, Torrevieja',locMap:'Open in Google Maps →',locHours:'Daily 10:00 – 02:00',locEveryDay:'Open every day',locCall:'Call us',
-    gameTitle:'Available Games',gameSub:'Play the most popular titles on our systems',
+    gameTitle:'Available Games',gameSub:'Play the most popular titles on our systems',steamNote:'Must have your own Steam account',
     priceTitle:'Pricing',priceSub:'Simple & fair — all gaming time never expires',p1h:'PC Gaming',p2h:'PS5',p3h:'Night Gaming',p4h:'VIP Room',hoursLabel:'Open Daily',
     revTitle:'What Gamers Say',revSub:'The gaming community of Torrevieja has spoken',r1:'"The PCs are top-notch, with zero lag, and the peripherals are clearly high quality. We\'ll definitely be back."',r2:'"The best place to play ranked games in style. Comfortable chairs, top-of-the-line screens, and a good connection."',r3:'"We went to a tournament and everything was very well organised: sound, stands, space and good vibes."',
     foodTitle:'Food & Drinks',foodSub:'Keep your energy up',
@@ -580,7 +582,7 @@ const lang = {
     aboutG1:'75 × RTX 5080/5090 ПК',aboutG2:'PS5 Pro · 4K 120Гц',aboutG3:'Интернет 10 Гбит/с',aboutG4:'Еженедельные турниры',
     featTitle:'Почему PLAYZ?',featSub:'Лучший гейминг-опыт на Коста-Бланке',f1h:'Мощные ПК',f1p:'GPU RTX 5060-5090, мониторы 240 Гц, периферия RAZER и Logitech G Pro.',f2h:'Консольная зона',f2p:'PS5 и PS5 Pro на OLED 8K дисплеях. Все эксклюзивы, 120fps.',f3h:'Турниры',f3p:'Еженедельные соревнования с призами. Повышай ранг в лиге PLAYZ.',f4h:'10 Гбит/с Интернет',f4p:'Ультрабыстрый интернет. Ноль лагов. Игры на максимальном уровне.',
     locTitle:'Локация',locSub:'Найди нас в центре Торревьехи',locAddr:'C. De Orihuela 100, Торревьеха',locMap:'Открыть в Google Maps →',locHours:'Ежедневно 10:00 – 02:00',locEveryDay:'Открыто каждый день',locCall:'Позвони',
-    gameTitle:'Доступные игры',gameSub:'Играй в популярнейшие тайтлы',
+    gameTitle:'Доступные игры',gameSub:'Играй в популярнейшие тайтлы',steamNote:'Обязательно свой Steam аккаунт',
     priceTitle:'Цены',priceSub:'Честно и просто — время никогда не сгорает',p1h:'ПК',p2h:'PS5',p3h:'Ночной гейминг',p4h:'VIP',hoursLabel:'Ежедневно',
     revTitle:'Отзывы геймеров',revSub:'Игровое сообщество Торревьехи оценило',r1:'"ПК высшего уровня, ноль лагов, периферия отличного качества. Атмосфера очень геймерская, персонал внимательный. Вернёмся обязательно."',r2:'"Лучшее место для рейтинговых игр. Удобные кресла, топовые экраны, отличное соединение."',r3:'"Были на турнире — всё отлично организовано: звук, стенды, пространство. Если любишь киберспорт — это твоё место."',
     foodTitle:'Еда и напитки',foodSub:'Подзарядись',
@@ -601,7 +603,7 @@ const lang = {
     aboutG1:'75 × RTX 5080/5090 حاسوب',aboutG2:'PS5 Pro · 4K 120Hz',aboutG3:'ألياف 10 جيجابت',aboutG4:'بطولات أسبوعية',
     featTitle:'لماذا PLAYZ؟',featSub:'تجربة الألعاب المثلى على ساحل كوستا بلانكا',f1h:'أجهزة عالية الأداء',f1p:'معالجات RTX 5060-5090 وشاشات 240Hz ومعدات RAZER وLogitech G Pro.',f2h:'منطقة الأجهزة',f2p:'PS5 و PS5 Pro على شاشات OLED 8K.',f3h:'بطولات',f3p:'مسابقات أسبوعية بجوائز. ارتقِ في دوري PLAYZ.',f4h:'ألياف 10 جيجابت',f4p:'إنترنت فائق السرعة. بدون تأخير. العب بأعلى مستوى.',
     locTitle:'الموقع',locSub:'تجدنا في قلب توريفيخا',locAddr:'شارع أوريهويلا 100، توريفيخا',locMap:'فتح في خرائط جوجل ←',locHours:'يومياً 10:00 – 02:00',locEveryDay:'مفتوح كل يوم',locCall:'اتصل بنا',
-    gameTitle:'الألعاب المتاحة',gameSub:'العب أشهر الألعاب على أنظمتنا',
+    gameTitle:'الألعاب المتاحة',gameSub:'العب أشهر الألعاب على أنظمتنا',steamNote:'يجب أن يكون لديك حساب Steam الخاص بك',
     priceTitle:'الأسعار',priceSub:'بسيطة وعادلة — وقت اللعب لا ينتهي أبداً',p1h:'حاسوب',p2h:'PS5',p3h:'اللعب الليلي',p4h:'VIP',hoursLabel:'مفتوح يومياً',
     revTitle:'ماذا يقول اللاعبون',revSub:'مجتمع الألعاب في توريفيخا يتحدث',r1:'"أجهزة الكمبيوتر من الدرجة الأولى بدون تأخير وجودة الملحقات عالية. الجو مناسب جداً للاعبين لكنه مريح. سنعود بالتأكيد."',r2:'"أفضل مكان للعب المباريات التنافسية. كراسي مريحة وشاشات ممتازة واتصال جيد."',r3:'"ذهبنا إلى بطولة وكان كل شيء منظماً جداً: الصوت والمساحة والطاقة الإيجابية."',
     foodTitle:'الطعام والشراب',foodSub:'حافظ على طاقتك',
@@ -624,10 +626,10 @@ const games = [
   {icon:'🟦',name:'Minecraft'},{icon:'🌀',name:'Genshin Impact'},{icon:'👻',name:'PUBG'},
   {icon:'🗡️',name:'World of Warcraft'},{icon:'😈',name:'Diablo IV'},{icon:'🧊',name:'Roblox'},
 ];
-const gameColors = ['#ff6b35','#e63946','#2ec4b6','#8338ec','#ffbe0b','#fb5607','#3a86ff','#9c89b8','#06d6a0','#ef476f','#118ab2','#8d0801','#1b4332','#7209b7','#d62828','#457b9d','#e76f51','#2a9d8f'];
+const gameColor = '#06d6a0';
 const track=document.getElementById('tickerTrack');
 track.innerHTML=[...games,...games].map(g=>'<div class="ticker-item"><span class="g-logo">'+g.icon+'</span>'+g.name+'</div>').join('');
-document.getElementById('gamesGrid').innerHTML=games.map((g,i)=>'<div class="game-card reveal" style="background:'+gameColors[i]+'15;border:1px solid '+gameColors[i]+'25"><div class="g-bg" style="background:radial-gradient(circle at 50% 0%,'+gameColors[i]+'40,transparent 70%)"></div><span class="gi">'+g.icon+'</span><div class="gn">'+g.name+'</div></div>').join('');
+document.getElementById('gamesGrid').innerHTML=games.map((g,i)=>'<div class="game-card reveal" style="background:'+gameColor+'15;border:1px solid '+gameColor+'25"><div class="g-bg" style="background:radial-gradient(circle at 50% 0%,'+gameColor+'40,transparent 70%)"></div><span class="gi">'+g.icon+'</span><div class="gn">'+g.name+'</div></div>').join('');
 
 // ─── LANGUAGE ───
 function setLang(l){

@@ -148,6 +148,11 @@ section{position:relative;z-index:1}
 .cart-whatsapp{width:100%;padding:16px;border-radius:50px;font-weight:700;font-size:.85rem;text-transform:uppercase;letter-spacing:1px;border:none;background:#25D366;color:#fff;cursor:pointer;transition:.3s;display:flex;align-items:center;justify-content:center;gap:8px;font-family:inherit}
 .cart-whatsapp:hover{background:#20bd5a;transform:translateY(-2px);box-shadow:0 8px 20px rgba(37,211,102,.3)}
 
+.lang-switch{position:fixed;top:78px;right:24px;z-index:200;display:flex;gap:2px;background:rgba(10,10,10,.7);backdrop-filter:blur(8px);border:1px solid rgba(212,168,83,.1);border-radius:10px;padding:3px}
+.lang-btn{background:none;border:none;color:#555;font-size:.6rem;font-weight:700;padding:4px 8px;border-radius:7px;cursor:pointer;transition:.3s;font-family:'Inter',sans-serif;letter-spacing:.5px}
+.lang-btn:hover{color:#aaa}
+.lang-btn.active{background:rgba(212,168,83,.12);color:#d4a853}
+.lang-switch.ar{direction:ltr}
 @media(max-width:768px){
   .nav{padding:16px 20px}
   .nav.scrolled{padding:10px 20px}
@@ -158,6 +163,7 @@ section{position:relative;z-index:1}
   .about-visual{min-height:300px}
   .cart-panel{width:100%;right:-100%}
   .modal{padding:24px}
+  .lang-switch{top:68px;right:16px;padding:2px}.lang-btn{padding:3px 6px;font-size:.55rem}
 }
 
 @keyframes fadeInUp{to{opacity:1;transform:translateY(0)}}
@@ -174,10 +180,10 @@ section{position:relative;z-index:1}
 <nav class="nav" id="nav">
   <a href="#" class="nav-logo">EL<span>REY</span></a>
   <ul class="nav-links" id="navLinks">
-    <li><a href="#about">About</a></li>
-    <li><a href="#menu">Menu</a></li>
-    <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#about" data-i="navAbout">Sobre</a></li>
+    <li><a href="#menu" data-i="navMenu">Carta</a></li>
+    <li><a href="#gallery" data-i="navGal">Galería</a></li>
+    <li><a href="#contact" data-i="navContact">Contacto</a></li>
   </ul>
   <button class="cart-icon" id="cartBtn" aria-label="Cart">
     🛒<span class="cart-count" id="cartCount">0</span>
@@ -187,16 +193,23 @@ section{position:relative;z-index:1}
   </button>
 </nav>
 
+<div class="lang-switch">
+  <button class="lang-btn active" data-lang="es">ES</button>
+  <button class="lang-btn" data-lang="en">EN</button>
+  <button class="lang-btn" data-lang="ru">RU</button>
+  <button class="lang-btn" data-lang="ar">AR</button>
+</div>
+
 <section class="hero">
-  <div class="hero-badge">★ 4.0 · 37 reviews</div>
-  <h1>El Rey<br><span>Kebab</span></h1>
-  <p>Настоящий турецкий дёнер-кебаб в Торревьехе. Свежее мясо с вертела, домашний соус, лучшая цена — от 1€. Открыто до 01:00.</p>
+  <div class="hero-badge" data-i="heroBadge">★ 4.0 · 37 reviews</div>
+  <h1 data-i="heroTitle">El Rey<br><span>Kebab</span></h1>
+  <p data-i="heroDesc">Настоящий турецкий дёнер-кебаб в Торревьехе. Свежее мясо с вертела, домашний соус, лучшая цена — от 1€. Открыто до 01:00.</p>
   <div class="hero-actions">
-    <a href="#menu" class="btn btn-primary">Заказать</a>
-    <a href="#contact" class="btn btn-outline">Контакты</a>
+    <a href="#menu" class="btn btn-primary" data-i="orderBtn">Заказать</a>
+    <a href="#contact" class="btn btn-outline" data-i="contactBtn">Контакты</a>
   </div>
   <div class="scroll-indicator">
-    <span>Scroll</span>
+    <span data-i="scroll">Scroll</span>
     <div class="line"></div>
   </div>
 </section>
@@ -207,36 +220,36 @@ section{position:relative;z-index:1}
     <img src="https://images.unsplash.com/photo-1561758033-7e924f619b47?w=800&q=80" alt="">
   </div>
   <div class="about-content">
-    <div class="tag">About Us</div>
-    <h2>Королевский кебаб<br>в Torrevieja</h2>
-    <p>EL REY KEBAB — свежее мясо с вертела, традиционные турецкие рецепты и лучшие цены на побережье. Готовим с душой для вас и вашей семьи.</p>
-    <p>villa de madrid, C. Bilbao, 19 esquina — приходи попробовать настоящий вкус!</p>
+    <div class="tag" data-i="aboutTag">Sobre Nosotros</div>
+    <h2 data-i="aboutTitle">El auténtico kebab turco<br>en Torrevieja</h2>
+    <p data-i="aboutP1">EL REY KEBAB — carne fresca del asador, recetas tradicionales turcas y los mejores precios de la costa. Cocina con alma para ti y tu familia.</p>
+    <p data-i="aboutP2">Villa de Madrid, C. Bilbao, 19 esquina — ven a probar el auténtico sabor.</p>
     <div class="stats">
       <div class="stat">
         <div class="stat-number" data-count="4">0</div>
-        <div class="stat-label">Rating ★</div>
+        <div class="stat-label" data-i="ratingLabel">Valoración ★</div>
       </div>
       <div class="stat">
         <div class="stat-number" data-count="37">0</div>
-        <div class="stat-label">Reviews</div>
+        <div class="stat-label" data-i="reviewsLabel">Reseñas</div>
       </div>
       <div class="stat">
         <div class="stat-number" data-count="10">0€</div>
-        <div class="stat-label">Max Price</div>
+        <div class="stat-label" data-i="priceLabel">Precio Máx</div>
       </div>
     </div>
   </div>
 </section>
 
 <section class="menu" id="menu">
-  <h2 class="reveal">Наше меню</h2>
-  <p class="subtitle reveal">Собери свой идеальный кебаб</p>
+  <h2 class="reveal" data-i="menuTitle">Nuestra Carta</h2>
+  <p class="subtitle reveal" data-i="menuSub">Prepara tu kebab perfecto</p>
   <div class="menu-grid" id="menuGrid"></div>
 </section>
 
 <section class="gallery" id="gallery">
-  <h2 class="reveal">Фото</h2>
-  <p class="subtitle reveal">Посмотри, как мы готовим</p>
+  <h2 class="reveal" data-i="galTitle">Galería</h2>
+  <p class="subtitle reveal" data-i="galSub">Mira cómo cocinamos</p>
   <div class="gallery-grid">
     <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1561651823-34feb0225538?w=600&q=80" alt=""><div class="glow"></div></div>
     <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1613514785940-daed0772d6d0?w=600&q=80" alt=""><div class="glow"></div></div>
@@ -248,31 +261,31 @@ section{position:relative;z-index:1}
 </section>
 
 <section class="cta" id="contact">
-  <h2 class="reveal">Контакты</h2>
-  <p class="reveal">Ждём тебя каждый день до 01:00!</p>
+  <h2 class="reveal" data-i="ctaTitle">Contacto</h2>
+  <p class="reveal" data-i="ctaSub">Te esperamos cada día hasta la 01:00</p>
   <div class="hero-actions reveal">
     <a href="tel:+34986557198" class="btn btn-primary">📞 865 55 71 98</a>
-    <a href="https://www.google.com/maps/search/X8J6%2B84+Torrevieja" target="_blank" class="btn btn-outline">📍 Маршрут</a>
+    <a href="https://www.google.com/maps/search/X8J6%2B84+Torrevieja" target="_blank" class="btn btn-outline">📍 <span data-i="routeBtn">Ruta</span></a>
   </div>
   <div class="cta-contact reveal">
     <div class="cta-item">
       <span class="c-icon">📍</span>
-      <span class="c-label">Address</span>
+      <span class="c-label" data-i="addrLabel">Dirección</span>
       <span class="c-value">C. Bilbao, 19, Torrevieja</span>
     </div>
     <div class="cta-item">
       <span class="c-icon">📞</span>
-      <span class="c-label">Phone</span>
+      <span class="c-label" data-i="phoneLabel">Teléfono</span>
       <span class="c-value">865 55 71 98</span>
     </div>
     <div class="cta-item">
       <span class="c-icon">🕐</span>
-      <span class="c-label">Hours</span>
-      <span class="c-value">Ежедневно · до 01:00</span>
+      <span class="c-label" data-i="hoursLabel">Horario</span>
+      <span class="c-value" data-i="ctaHours">Diario · hasta 01:00</span>
     </div>
     <div class="cta-item">
       <span class="c-icon">💶</span>
-      <span class="c-label">Price</span>
+      <span class="c-label" data-i="priceLabel2">Precio</span>
       <span class="c-value">1–10€</span>
     </div>
   </div>
@@ -284,11 +297,11 @@ section{position:relative;z-index:1}
 
 <footer class="footer">
   <div class="footer-links">
-    <a href="#">Instagram</a>
-    <a href="#">Telegram</a>
-    <a href="#">WhatsApp</a>
+    <a href="#" data-i="footerIG">Instagram</a>
+    <a href="#" data-i="footerTG">Telegram</a>
+    <a href="#" data-i="footerWA">WhatsApp</a>
   </div>
-  <p>&copy; 2026 EL REY KEBAB. All rights reserved.</p>
+  <p data-i="footerCopy">&copy; 2026 EL REY KEBAB. Todos los derechos reservados.</p>
 </footer>
 
 <!-- Modal -->
@@ -305,54 +318,145 @@ section{position:relative;z-index:1}
       <span id="qtyDisplay">1</span>
       <button id="qtyPlus">+</button>
     </div>
-    <button class="modal-add" id="modalAdd">Добавить в корзину</button>
+    <button class="modal-add" id="modalAdd" data-i="modalAddBtn">Añadir al carrito</button>
   </div>
 </div>
 
 <!-- Cart -->
 <div class="cart-panel" id="cartPanel">
-  <h2>Корзина <button id="cartClose">&times;</button></h2>
+  <h2><span data-i="cartTitle">Carrito</span> <button id="cartClose">&times;</button></h2>
   <div class="cart-items" id="cartItems">
-    <p style="color:#555;text-align:center;margin-top:40px;font-size:.9rem">Корзина пуста</p>
+    <p style="color:#555;text-align:center;margin-top:40px;font-size:.9rem" id="cartEmpty" data-i="cartEmpty">El carrito está vacío</p>
   </div>
   <div id="cartFooter" style="display:none">
     <div class="cart-total">
-      <span>Итого</span>
+      <span data-i="cartTotalLabel">Total</span>
       <span id="cartTotal">0€</span>
     </div>
-    <button class="cart-whatsapp" id="cartWhatsapp">
-      💬 Заказать в WhatsApp
+    <button class="cart-whatsapp" id="cartWhatsapp" data-i="cartWA">
+      💬 Pedir por WhatsApp
     </button>
   </div>
 </div>
 
 <script>
+// ========== LANG ==========
+const lang = {
+  es: {
+    heroBadge:'★ 4.0 · 37 reseñas',heroTitle:'El Rey<br><span>Kebab</span>',heroDesc:'Auténtico döner kebab turco en Torrevieja. Carne fresca del asador, salsa casera, mejor precio — desde 1€. Abierto hasta la 01:00.',
+    orderBtn:'Pedir',contactBtn:'Contacto',scroll:'Desplázate',
+    navAbout:'Sobre',navMenu:'Carta',navGal:'Galería',navContact:'Contacto',
+    aboutTag:'Sobre Nosotros',aboutTitle:'El auténtico kebab turco<br>en Torrevieja',aboutP1:'EL REY KEBAB — carne fresca del asador, recetas tradicionales turcas y los mejores precios de la costa. Cocina con alma para ti y tu familia.',aboutP2:'Villa de Madrid, C. Bilbao, 19 esquina — ven a probar el auténtico sabor.',
+    ratingLabel:'Valoración ★',reviewsLabel:'Reseñas',priceLabel:'Precio Máx',
+    menuTitle:'Nuestra Carta',menuSub:'Prepara tu kebab perfecto',donerName:'Döner Kebab',donerDesc:'Kebab clásico en pan pita con verduras y salsa a elegir',wrapName:'Kebab Wrap',wrapDesc:'Kebab jugoso en pan de lava con doble ración de carne',comboName:'Menú Combo',comboDesc:'Kebab + patatas fritas + bebida — ¡el más vendido!',saladName:'Ensalada Kebab',saladDesc:'Ensalada con carne del asador y verduras frescas',falafelName:'Falafel',falafelDesc:'Opción vegetariana con garbanzos y hierbas',hamburguesaName:'Hamburguesa',hamburguesaDesc:'Hamburguesa de ternera con queso y salsa',
+    meatLabel:'Carne',sauceLabel:'Salsa',extraLabel:'Extras',qtyLabel:'Cantidad',
+    modalAddBtn:'Añadir al carrito',cartTitle:'Carrito',cartEmpty:'El carrito está vacío',cartTotalLabel:'Total',cartWA:'💬 Pedir por WhatsApp',
+    galTitle:'Galería',galSub:'Mira cómo cocinamos',
+    ctaTitle:'Contacto',ctaSub:'Te esperamos cada día hasta la 01:00',routeBtn:'Ruta',
+    addrLabel:'Dirección',phoneLabel:'Teléfono',hoursLabel:'Horario',priceLabel2:'Precio',ctaHours:'Diario · hasta 01:00',
+    footerIG:'Instagram',footerTG:'Telegram',footerWA:'WhatsApp',footerCopy:'© 2026 EL REY KEBAB. Todos los derechos reservados.',
+  },
+  en: {
+    heroBadge:'★ 4.0 · 37 reviews',heroTitle:'El Rey<br><span>Kebab</span>',heroDesc:'Authentic Turkish döner kebab in Torrevieja. Fresh meat from the spit, homemade sauce, best price — from 1€. Open until 01:00.',
+    orderBtn:'Order',contactBtn:'Contact',scroll:'Scroll',
+    navAbout:'About',navMenu:'Menu',navGal:'Gallery',navContact:'Contact',
+    aboutTag:'About Us',aboutTitle:'Royal kebab<br>in Torrevieja',aboutP1:'EL REY KEBAB — fresh meat from the spit, traditional Turkish recipes and the best prices on the coast. Cooked with soul for you and your family.',aboutP2:'Villa de Madrid, C. Bilbao, 19 esquina — come and taste the real flavor.',
+    ratingLabel:'Rating ★',reviewsLabel:'Reviews',priceLabel:'Max Price',
+    menuTitle:'Our Menu',menuSub:'Build your perfect kebab',donerName:'Döner Kebab',donerDesc:'Classic kebab in pita bread with vegetables and sauce of choice',wrapName:'Kebab Wrap',wrapDesc:'Juicy kebab in lava bread with double meat portion',comboName:'Combo Menu',comboDesc:'Kebab + fries + drink — bestseller!',saladName:'Kebab Salad',saladDesc:'Salad with spit-roasted meat and fresh vegetables',falafelName:'Falafel',falafelDesc:'Vegetarian option with chickpeas and herbs',hamburguesaName:'Hamburger',hamburguesaDesc:'Beef patty with cheese and sauce',
+    meatLabel:'Meat',sauceLabel:'Sauce',extraLabel:'Extras',qtyLabel:'Quantity',
+    modalAddBtn:'Add to Cart',cartTitle:'Cart',cartEmpty:'Cart is empty',cartTotalLabel:'Total',cartWA:'💬 Order via WhatsApp',
+    galTitle:'Gallery',galSub:'See how we cook',
+    ctaTitle:'Contact',ctaSub:'We wait for you every day until 01:00',routeBtn:'Route',
+    addrLabel:'Address',phoneLabel:'Phone',hoursLabel:'Hours',priceLabel2:'Price',ctaHours:'Daily · until 01:00',
+    footerIG:'Instagram',footerTG:'Telegram',footerWA:'WhatsApp',footerCopy:'© 2026 EL REY KEBAB. All rights reserved.',
+  },
+  ru: {
+    heroBadge:'★ 4.0 · 37 отзывов',heroTitle:'El Rey<br><span>Kebab</span>',heroDesc:'Настоящий турецкий дёнер-кебаб в Торревьехе. Свежее мясо с вертела, домашний соус, лучшая цена — от 1€. Открыто до 01:00.',
+    orderBtn:'Заказать',contactBtn:'Контакты',scroll:'Листай',
+    navAbout:'О нас',navMenu:'Меню',navGal:'Галерея',navContact:'Контакты',
+    aboutTag:'О нас',aboutTitle:'Королевский кебаб<br>в Torrevieja',aboutP1:'EL REY KEBAB — свежее мясо с вертела, традиционные турецкие рецепты и лучшие цены на побережье. Готовим с душой для вас и вашей семьи.',aboutP2:'villa de madrid, C. Bilbao, 19 esquina — приходи попробовать настоящий вкус!',
+    ratingLabel:'Рейтинг ★',reviewsLabel:'Отзывы',priceLabel:'Макс. цена',
+    menuTitle:'Наше меню',menuSub:'Собери свой идеальный кебаб',donerName:'Дёнер Кебаб',donerDesc:'Классический кебаб в пите с овощами и соусом на выбор',wrapName:'Кебаб Wrap',wrapDesc:'Сочный кебаб в лаваше с двойной порцией мяса',comboName:'Комбо Меню',comboDesc:'Кебаб + картошка фри + напиток — хит продаж!',saladName:'Кебаб Салат',saladDesc:'Салат с мясом с вертела и свежие овощи',falafelName:'Фалафель',falafelDesc:'Вегетарианский вариант с нутом и зеленью',hamburguesaName:'Гамбургер',hamburguesaDesc:'Говяжья котлета с сыром и соусом',
+    meatLabel:'Мясо',sauceLabel:'Соус',extraLabel:'Добавки',qtyLabel:'Количество',
+    modalAddBtn:'Добавить в корзину',cartTitle:'Корзина',cartEmpty:'Корзина пуста',cartTotalLabel:'Итого',cartWA:'💬 Заказать в WhatsApp',
+    galTitle:'Фото',galSub:'Посмотри, как мы готовим',
+    ctaTitle:'Контакты',ctaSub:'Ждём тебя каждый день до 01:00!',routeBtn:'Маршрут',
+    addrLabel:'Адрес',phoneLabel:'Телефон',hoursLabel:'Часы',priceLabel2:'Цена',ctaHours:'Ежедневно · до 01:00',
+    footerIG:'Instagram',footerTG:'Telegram',footerWA:'WhatsApp',footerCopy:'© 2026 EL REY KEBAB. Все права защищены.',
+  },
+  ar: {
+    heroBadge:'★ 4.0 · 37 تقييم',heroTitle:'El Rey<br><span>Kebab</span>',heroDesc:'كباب دونر تركي أصلي في توريفيخا. لحم طازج من السيخ، صلصة منزلية، أفضل سعر — من 1€. مفتوح حتى 01:00.',
+    orderBtn:'اطلب',contactBtn:'اتصل',scroll:'مرر',
+    navAbout:'عن',navMenu:'القائمة',navGal:'معرض',navContact:'اتصل',
+    aboutTag:'معلومات عنا',aboutTitle:'الكباب الملكي<br>في توريفيخا',aboutP1:'EL REY KEBAB — لحم طازج من السيخ، وصفات تركية تقليدية وأفضل الأسعار على الساحل. نطبخ بروح لأجلك ولأسرتك.',aboutP2:'Villa de Madrid، C. Bilbao، 19 — تعال وتمتع بالطعم الحقيقي.',
+    ratingLabel:'★ التقييم',reviewsLabel:'التقييمات',priceLabel:'السعر الأقصى',
+    menuTitle:'قائمتنا',menuSub:'اصنع الكباب المثالي الخاص بك',donerName:'دونر كباب',donerDesc:'كباب كلاسيكي في خبز البيتا مع الخضار والصلصة للاختيار',wrapName:'لفة كباب',wrapDesc:'كباب طري في خبز اللافا مع حصة مضاعفة من اللحم',comboName:'الوجبة المدمجة',comboDesc:'كباب + بطاطا مقلية + مشروب — الأكثر مبيعاً!',saladName:'سلطة كباب',saladDesc:'سلطة مع لحم السيخ والخضار الطازجة',falafelName:'فلافل',falafelDesc:'خيار نباتي مع الحمص والأعشاب',hamburguesaName:'همبرغر',hamburguesaDesc:'لحم بقر مع جبن وصلصة',
+    meatLabel:'اللحم',sauceLabel:'الصلصة',extraLabel:'الإضافات',qtyLabel:'الكمية',
+    modalAddBtn:'أضف إلى السلة',cartTitle:'السلة',cartEmpty:'السلة فارغة',cartTotalLabel:'المجموع',cartWA:'💬 اطلب عبر واتساب',
+    galTitle:'معرض',galSub:'انظر كيف نطبخ',
+    ctaTitle:'اتصل بنا',ctaSub:'ننتظرك يومياً حتى 01:00',routeBtn:'الطريق',
+    addrLabel:'العنوان',phoneLabel:'الهاتف',hoursLabel:'الساعات',priceLabel2:'السعر',ctaHours:'يومياً · حتى 01:00',
+    footerIG:'انستغرام',footerTG:'تيليغرام',footerWA:'واتساب',footerCopy:'© 2026 EL REY KEBAB. جميع الحقوق محفوظة.',
+  }
+};
+
 // ========== MENU DATA ==========
 const menuItems = [
-  { id:'doner', icon:'🥙', name:'Döner Kebab', price:5, desc:'Классический кебаб в пите с овощами и соусом на выбор', hasMeat:true, hasSauce:true, hasExtra:false },
-  { id:'wrap', icon:'🌯', name:'Kebab Wrap', price:6, desc:'Сочный кебаб в лаваше с двойной порцией мяса', hasMeat:true, hasSauce:true, hasExtra:false },
-  { id:'combo', icon:'🍟', name:'Combo Menu', price:9, desc:'Кебаб + картошка фри + напиток — хит продаж!', hasMeat:true, hasSauce:true, hasExtra:true },
-  { id:'salad', icon:'🥗', name:'Kebab Salad', price:7, desc:'Салат с мясом с вертела и свежие овощи', hasMeat:true, hasSauce:true, hasExtra:false },
-  { id:'falafel', icon:'🧆', name:'Falafel', price:4, desc:'Вегетарианский вариант с нутом и зеленью', hasMeat:false, hasSauce:true, hasExtra:false },
-  { id:'hamburguesa', icon:'🍔', name:'Hamburguesa', price:4, desc:'Говяжья котлета с сыром и соусом', hasMeat:false, hasSauce:true, hasExtra:false },
+  { id:'doner', icon:'🥙', nameKey:'donerName', descKey:'donerDesc', price:5, hasMeat:true, hasSauce:true, hasExtra:false },
+  { id:'wrap', icon:'🌯', nameKey:'wrapName', descKey:'wrapDesc', price:6, hasMeat:true, hasSauce:true, hasExtra:false },
+  { id:'combo', icon:'🍟', nameKey:'comboName', descKey:'comboDesc', price:9, hasMeat:true, hasSauce:true, hasExtra:true },
+  { id:'salad', icon:'🥗', nameKey:'saladName', descKey:'saladDesc', price:7, hasMeat:true, hasSauce:true, hasExtra:false },
+  { id:'falafel', icon:'🧆', nameKey:'falafelName', descKey:'falafelDesc', price:4, hasMeat:false, hasSauce:true, hasExtra:false },
+  { id:'hamburguesa', icon:'🍔', nameKey:'hamburguesaName', descKey:'hamburguesaDesc', price:4, hasMeat:false, hasSauce:true, hasExtra:false },
 ];
 
 const meats = [
-  { id:'pollo', label:'Pollo' },
-  { id:'cerdo', label:'Cerdo' },
-  { id:'mixto', label:'Mixto' },
+  { id:'pollo', labelKey:'meatPollo' },
+  { id:'cerdo', labelKey:'meatCerdo' },
+  { id:'mixto', labelKey:'meatMixto' },
 ];
 
 const sauces = [
-  { id:'picante', label:'Salsa Picante' },
-  { id:'blanca', label:'Salsa Blanca' },
-  { id:'ambas', label:'Ambas (+0.50€)' },
+  { id:'picante', labelKey:'saucePicante' },
+  { id:'blanca', labelKey:'sauceBlanca' },
+  { id:'ambas', labelKey:'sauceAmbas' },
 ];
 
 const extras = [
-  { id:'queso', label:'Extra Queso (+1€)' },
-  { id:'patatas', label:'Extra Patatas (+1.50€)' },
+  { id:'queso', labelKey:'extraQueso' },
+  { id:'patatas', labelKey:'extraPatatas' },
 ];
+
+// add labels to lang objects
+['es','en','ru','ar'].forEach(l => {
+  lang[l].meatPollo='Pollo'; lang[l].meatCerdo='Cerdo'; lang[l].meatMixto='Mixto';
+  lang[l].saucePicante='Salsa Picante'; lang[l].sauceBlanca='Salsa Blanca';
+  lang[l].sauceAmbas='Ambas (+0.50€)';
+  lang[l].extraQueso='Extra Queso (+1€)'; lang[l].extraPatatas='Extra Patatas (+1.50€)';
+});
+lang.ru.meatPollo='Курица'; lang.ru.meatCerdo='Свинина'; lang.ru.meatMixto='Микс';
+lang.ru.saucePicante='Пиканте'; lang.ru.sauceBlanca='Бланка'; lang.ru.sauceAmbas='Два соуса (+0.50€)';
+lang.ru.extraQueso='Сыр (+1€)'; lang.ru.extraPatatas='Картошка (+1.50€)';
+lang.ar.meatPollo='دجاج'; lang.ar.meatCerdo='لحم خنزير'; lang.ar.meatMixto='مختلط';
+lang.ar.saucePicante='صلصة حارة'; lang.ar.sauceBlanca='صلصة بيضاء'; lang.ar.sauceAmbas='كلاهما (+0.50€)';
+lang.ar.extraQueso='جبنة إضافية (+1€)'; lang.ar.extraPatatas='بطاطا إضافية (+1.50€)';
+
+// ========== LANG FUNC ==========
+let currentLang = 'es';
+function setLang(l) {
+  currentLang = l;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+  document.documentElement.dir = l === 'ar' ? 'rtl' : 'ltr';
+  document.querySelectorAll('[data-i]').forEach(el => {
+    const k = el.dataset.i;
+    if (lang[l] && lang[l][k]) el.innerHTML = lang[l][k];
+  });
+  renderMenu();
+  localStorage.setItem('kebabLang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+
+function t(key) { return lang[currentLang][key] || key; }
 
 // ========== STATE ==========
 let cart = [];
@@ -361,19 +465,22 @@ let qty = 1;
 
 // ========== RENDER MENU ==========
 const grid = document.getElementById('menuGrid');
-menuItems.forEach(item => {
-  const card = document.createElement('div');
-  card.className = 'menu-card reveal';
-  card.innerHTML = `
-    <span class="icon">${item.icon}</span>
-    <h3>${item.name}</h3>
-    <div class="price">${item.price}€</div>
-    <div class="desc">${item.desc}</div>
-    <button class="order-btn" data-id="${item.id}">Выбрать</button>
-  `;
-  card.querySelector('.order-btn').addEventListener('click', () => openModal(item.id));
-  grid.appendChild(card);
-});
+function renderMenu() {
+  grid.innerHTML = '';
+  menuItems.forEach(item => {
+    const card = document.createElement('div');
+    card.className = 'menu-card';
+    card.innerHTML = `
+      <span class="icon">${item.icon}</span>
+      <h3>${t(item.nameKey)}</h3>
+      <div class="price">${item.price}€</div>
+      <div class="desc">${t(item.descKey)}</div>
+      <button class="order-btn" data-id="${item.id}">${t('orderBtn')}</button>
+    `;
+    card.querySelector('.order-btn').addEventListener('click', () => openModal(item.id));
+    grid.appendChild(card);
+  });
+}
 
 // ========== MODAL ==========
 const modalOverlay = document.getElementById('modal');
@@ -404,36 +511,36 @@ function closeModal() {
 
 function updateModal() {
   if (!currentItem) return;
-  modalTitle.textContent = currentItem.name;
+  modalTitle.textContent = t(currentItem.nameKey);
   modalPrice.textContent = currentItem.price + '€';
   qtyDisplay.textContent = qty;
 
   let html = '';
   if (currentItem.hasMeat) {
     html += `<div class="option-group">
-      <span class="og-label">Мясо</span>
+      <span class="og-label">${t('meatLabel')}</span>
       <div class="option-row">`;
     meats.forEach(m => {
-      html += `<button class="option-chip${selectedMeat === m.id ? ' active' : ''}" data-group="meat" data-val="${m.id}">${m.label}</button>`;
+      html += `<button class="option-chip${selectedMeat === m.id ? ' active' : ''}" data-group="meat" data-val="${m.id}">${t(m.labelKey)}</button>`;
     });
     html += `</div></div>`;
   }
   if (currentItem.hasSauce) {
     html += `<div class="option-group">
-      <span class="og-label">Соус</span>
+      <span class="og-label">${t('sauceLabel')}</span>
       <div class="option-row">`;
     sauces.forEach(s => {
-      html += `<button class="option-chip${selectedSauce === s.id ? ' active' : ''}" data-group="sauce" data-val="${s.id}">${s.label}</button>`;
+      html += `<button class="option-chip${selectedSauce === s.id ? ' active' : ''}" data-group="sauce" data-val="${s.id}">${t(s.labelKey)}</button>`;
     });
     html += `</div></div>`;
   }
   if (currentItem.hasExtra) {
     html += `<div class="option-group">
-      <span class="og-label">Добавки</span>
+      <span class="og-label">${t('extraLabel')}</span>
       <div class="option-row">`;
     extras.forEach(e => {
       const isSelected = selectedExtras.includes(e.id);
-      html += `<button class="option-chip extra${isSelected ? ' active' : ''}" data-group="extra" data-val="${e.id}">${e.label}</button>`;
+      html += `<button class="option-chip extra${isSelected ? ' active' : ''}" data-group="extra" data-val="${e.id}">${t(e.labelKey)}</button>`;
     });
     html += `</div></div>`;
   }
@@ -473,15 +580,15 @@ document.getElementById('qtyPlus').addEventListener('click', () => {
 document.getElementById('modalAdd').addEventListener('click', () => {
   if (!currentItem) return;
   const options = [];
-  if (currentItem.hasMeat) options.push(meats.find(m => m.id === selectedMeat).label);
+  if (currentItem.hasMeat) options.push(t(meats.find(m => m.id === selectedMeat).labelKey));
   if (currentItem.hasSauce) {
     const s = sauces.find(s => s.id === selectedSauce);
-    options.push(s.label + (s.id === 'ambas' ? ' (+0.50€)' : ''));
+    options.push(t(s.labelKey));
   }
   if (selectedExtras.length) {
     selectedExtras.forEach(eid => {
       const ex = extras.find(e => e.id === eid);
-      options.push(ex.label);
+      options.push(t(ex.labelKey));
     });
   }
 
@@ -520,7 +627,7 @@ function updateCart() {
   cartCount.textContent = count;
 
   if (cart.length === 0) {
-    cartItems.innerHTML = '<p style="color:#555;text-align:center;margin-top:40px;font-size:.9rem">Корзина пуста</p>';
+    cartItems.innerHTML = '<p style="color:#555;text-align:center;margin-top:40px;font-size:.9rem" data-i="cartEmpty">'+t('cartEmpty')+'</p>';
     cartFooter.style.display = 'none';
     return;
   }
@@ -553,16 +660,15 @@ function updateCart() {
 
 document.getElementById('cartWhatsapp').addEventListener('click', () => {
   if (cart.length === 0) return;
-  let msg = '🛵 *Новый заказ EL REY KEBAB*%0A%0A';
+  let msg = '🛵 *' + t('cartTitle').toUpperCase() + ' EL REY KEBAB*%0A%0A';
   cart.forEach(it => {
     msg += `${it.icon} *${it.name}* × ${it.qty}%0A`;
     msg += `   ${it.options.join(' · ')}%0A`;
     msg += `   ${it.totalPrice.toFixed(2)}€%0A%0A`;
   });
   const total = cart.reduce((s, it) => s + it.totalPrice, 0);
-  msg += `*Итого: ${total.toFixed(2)}€*%0A%0A`;
+  msg += `*${t('cartTotalLabel')}: ${total.toFixed(2)}€*%0A%0A`;
   msg += `📍 C. Bilbao, 19, Torrevieja%0A`;
-  msg += `🕐 Заберу через 20-30 мин`;
 
   window.open(`https://wa.me/3486557198?text=${msg}`, '_blank');
 });
@@ -630,6 +736,9 @@ const counterObserver = new IntersectionObserver(entries => {
   });
 }, { threshold:0.5 });
 document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
+
+const savedLang=localStorage.getItem('kebabLang')||'es';
+setLang(savedLang);
 </script>
 </body>
 </html>

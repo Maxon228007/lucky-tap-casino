@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.runQuery = exports.queryAll = exports.queryOne = exports.closeDb = exports.getDb = exports.initDb = void 0;
+var database_1 = require("./database");
+Object.defineProperty(exports, "initDb", { enumerable: true, get: function () { return database_1.initDb; } });
+Object.defineProperty(exports, "getDb", { enumerable: true, get: function () { return database_1.getDb; } });
+Object.defineProperty(exports, "closeDb", { enumerable: true, get: function () { return database_1.closeDb; } });
+Object.defineProperty(exports, "queryOne", { enumerable: true, get: function () { return database_1.queryOne; } });
+Object.defineProperty(exports, "queryAll", { enumerable: true, get: function () { return database_1.queryAll; } });
+Object.defineProperty(exports, "runQuery", { enumerable: true, get: function () { return database_1.runQuery; } });
